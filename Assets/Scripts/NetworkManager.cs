@@ -11,7 +11,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public int maxPlayers = 10;
     public TextMeshProUGUI connectionStatusText;
     public GameObject serverConnectScreen;
-    public GameObject mainMenu;
+    public GameObject mainMenuScreen;
+    public GameObject secondMenuScreen;
 
     public static NetworkManager instance;
 
@@ -35,11 +36,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             ConnectToMasterServer();
         }
     }
-
-    private void Start()
-    {
-    }
-
+    
     public void ConnectToMasterServer()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -49,7 +46,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         print("Connected to master server.");
         serverConnectScreen.SetActive(false);
-        mainMenu.SetActive(true);
+        mainMenuScreen.SetActive(true);
         connectionStatusText.SetText("Connected!");
+    }
+
+    public void goToSecondMenuScreen()
+    {
+        
     }
 }
