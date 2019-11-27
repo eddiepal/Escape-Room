@@ -22,36 +22,26 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
+    public void CreateRoom (string roomName)
     {
-        BeginConnecting();
+        RoomOptions options = new RoomOptions();
+        options.MaxPlayers = (byte)maxPlayers;
+        PhotonNetwork.CreateRoom(roomName, options);
     }
 
-    public void BeginConnecting()
+    public void JoinRoom (string roomName)
     {
-        if (Input.anyKeyDown && !PhotonNetwork.IsConnected)
-        {
-            print("Key pressed");
-            connectionStatusText.SetText("Connecting to server...");
-            ConnectToMasterServer();
-        }
+        PhotonNetwork.JoinRoom(roomName);
     }
     
-    public void ConnectToMasterServer()
-    {
-        PhotonNetwork.ConnectUsingSettings();
-    }
-
-    public override void OnConnectedToMaster()
-    {
-        print("Connected to master server.");
-        serverConnectScreen.SetActive(false);
-        mainMenuScreen.SetActive(true);
-        connectionStatusText.SetText("Connected!");
-    }
-
     public void goToSecondMenuScreen()
     {
         
     }
+    
+    public void ChangeScene (string sceneName)
+    {
+        PhotonNetwork.LoadLevel(sceneName);
+    }
+
 }
