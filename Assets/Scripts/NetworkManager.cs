@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
-using UnityEditor.Experimental.AssetImporters;
 using UnityEngine;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    public int maxPlayers = 10;
+    public int maxPlayers = 4;
     public TextMeshProUGUI connectionStatusText;
     public GameObject serverConnectScreen;
     public GameObject mainMenuScreen;
@@ -33,12 +32,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinRoom(roomName);
     }
-    
-    public void goToSecondMenuScreen()
-    {
-        
-    }
-    
+
+    [PunRPC]
     public void ChangeScene (string sceneName)
     {
         PhotonNetwork.LoadLevel(sceneName);

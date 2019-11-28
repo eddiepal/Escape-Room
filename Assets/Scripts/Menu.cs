@@ -65,7 +65,11 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         secondMenuScreen.SetActive(false);
         screen.SetActive(true);
         if (screen == lobbyBrowserScreen)
+        {
             UpdateLobbyBrowserUI();
+            Debug.Log("in if statement");
+        }
+
     }
 
     public void OnPlayerNameValueChanged(TMP_InputField playerNameInput)
@@ -125,7 +129,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         foreach (Player player in PhotonNetwork.PlayerList)
             playerListText.text += player.NickName + "\n";
 
-        roomInfoText.text += "\n<b>Room Name</b>\n" + PhotonNetwork.CurrentRoom.Name;
+        roomInfoText.text = "\n<b>Room Name</b>\n" + PhotonNetwork.CurrentRoom.Name;
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -139,7 +143,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         PhotonNetwork.CurrentRoom.IsVisible = false;
 
         //change the scene for everyone using rpc
-        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Game");
+        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Level1");
     }
 
     public void OnLeaveLobbyButton()
@@ -152,9 +156,10 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     {
         foreach (GameObject button in roomButtons)
             button.SetActive(false);
-
+        Debug.Log("In updatelobbybrwoserui: " + roomButtons.Count);
         for (int x = 0; x < roomList.Count; ++x)
         {
+            Debug.Log("In the for loop for updatelobbybrwoserui: " + roomButtons.Count);
             GameObject button = x >= roomButtons.Count
                 ? CreateRoomButton()
                 : roomButtons
@@ -177,6 +182,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     GameObject CreateRoomButton()
     {
+        Debug.Log("in createroombutton method");
         GameObject buttonObj = Instantiate(roomButtonPrefab, roomListContainer.transform)
             ;
         roomButtons.Add(buttonObj);
