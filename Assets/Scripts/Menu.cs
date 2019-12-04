@@ -82,7 +82,6 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         print("Connected to master server.");
         serverConnectScreen.SetActive(false);
         mainMenuScreen.SetActive(true);
-        connectionStatusText.SetText("Connected!");
     }
 
     public void ConnectToMasterServer()
@@ -149,7 +148,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public void OnLeaveLobbyButton()
     {
         PhotonNetwork.LeaveRoom();
-        SetScreen(mainMenuScreen);
+        SetScreen(serverConnectScreen);
     }
 
     void UpdateLobbyBrowserUI()
