@@ -155,7 +155,8 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     {
         foreach (GameObject button in roomButtons)
             button.SetActive(false);
-        Debug.Log("In updatelobbybrwoserui: " + roomButtons.Count);
+        
+        Debug.Log("Room list count: " + roomList.Count);
         for (int x = 0; x < roomList.Count; ++x)
         {
             Debug.Log("In the for loop for updatelobbybrwoserui: " + roomButtons.Count);
@@ -200,6 +201,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> allRooms)
     {
+        Debug.Log("In the OnRoomListUpdate override method");
         roomList = allRooms;
     }
 }
