@@ -80,6 +80,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public override void OnConnectedToMaster()
     {
         print("Connected to master server.");
+        PhotonNetwork.JoinLobby();
         serverConnectScreen.SetActive(false);
         mainMenuScreen.SetActive(true);
     }
@@ -109,11 +110,13 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     public void OnCreateButton(TMP_InputField roomNameInput)
     {
+        Debug.Log("In OnCreateButton method");
         NetworkManager.instance.CreateRoom(roomNameInput.text);
     }
 
     public override void OnJoinedRoom()
     {
+        Debug.Log("In OnJoinedRoom method");
         SetScreen(lobbyScreen);
         photonView.RPC("UpdateLobbyUI", RpcTarget.All);
     }
