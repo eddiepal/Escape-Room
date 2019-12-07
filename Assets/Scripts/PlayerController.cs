@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -15,6 +16,11 @@ public class PlayerController : MonoBehaviourPun
     
     public int id;
     public Player photonPlayer;
+
+    [Header("Raycasting")] 
+    public float rayLength;
+
+    public LayerMask layerMask;
     
     void Update ()
     {
