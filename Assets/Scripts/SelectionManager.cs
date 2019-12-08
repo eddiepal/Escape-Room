@@ -14,6 +14,7 @@ public class SelectionManager : MonoBehaviour
     
     private void Update()
     {
+        // Deselection/Selection Response
         if (_selection != null)
         {
             var selectionRenderer = _selection.GetComponent<Renderer>();
@@ -21,27 +22,31 @@ public class SelectionManager : MonoBehaviour
             _selection = null;
         }
 
-        #region Selecting a Determination
 
+
+        // Creating a Ray
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        
+        // Determining what was selected / Selection Determination
 
-        #endregion
-            
+        _selection = null;
+        if (Physics.Raycast(ray, out var hit))  
         {
             var selection = hit.transform;
+            // Deselection/Selection Response
             if (selection.CompareTag(selectableTag))
             {
-                var selectionRenderer = selection.GetComponent<Renderer>();
-                if (selectionRenderer != null)
-                {
-                    selectionRenderer.material = highlightMaterial;
-                }
-
                 _selection = selection;
             }
+        }
 
+        if (_selection != null)
+        {
+            var selectionRenderer = _selection.GetComponent<Renderer>();
+            if (selectionRenderer != null)
+            {
+                selectionRenderer.material = highlightMaterial;
+            }
         }
     }
 }
