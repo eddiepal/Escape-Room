@@ -10,12 +10,21 @@ public class PlayerController : MonoBehaviourPun
     [Header("Stats")] 
     public float moveSpeed;
     public float jumpForce;
+    public int curHp;
+    public int maxHp;
+    public int kills;
+    public bool dead;
 
-    [Header("Components")] 
+    private bool flashingDamage;
+
+        [Header("Components")] 
     public Rigidbody rig;
-    
-    public int id;
     public Player photonPlayer;
+    public MeshRenderer mr;
+    
+    [Header("Info")]
+    public int id;
+    private int curAttackerId;
 
     [Header("Raycasting")] 
     public float rayLength;
@@ -24,6 +33,9 @@ public class PlayerController : MonoBehaviourPun
     
     void Update ()
     {
+        if (!photonView.IsMine || dead)
+            return;
+        
         Move();
  
         if(Input.GetKeyDown(KeyCode.Space))
@@ -52,6 +64,52 @@ public class PlayerController : MonoBehaviourPun
         // shoot the raycast
         if(Physics.Raycast(ray, 1.5f))
             rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    [PunRPC]
+    public void TakeDamage(int attackerId, int damage)
+    {
+        if (dead)
+            return;
+
+        curHp -= damage;
+        curAttackerId = attackerId;
+        
+        // flash the player red
+        photonView.RPC("DamageFlash", RpcTarget.Others);
+        
+        // update the health bar UI
+        
+        // die if no health left
+        if(curHp <= 0)
+            photonView.RPC("Die", RpcTarget.All);
+    }
+
+    [PunRPC]
+    void DamageFlash()
+    {
+        if(flashingDamage)
+            return;
+
+        StartCoroutine(DamageFlashCoRoutine());
+
+        IEnumerator DamageFlashCoRoutine()
+        {
+            flashingDamage = true;
+
+            Color defaultColor = mr.material.color;
+            mr.material.color = Color.red;
+
+            yield return new WaitForSeconds(0.05f);
+
+            mr.material.color = defaultColor;
+            flashingDamage = false;
+        }
+    }
+
+    void Die()
+    {
+        
     }
     
     [PunRPC]

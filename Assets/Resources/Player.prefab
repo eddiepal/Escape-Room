@@ -845,7 +845,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 5
+  curHp: 0
+  maxHp: 0
+  kills: 0
+  dead: 0
   rig: {fileID: 3360533590415007334}
+  mr: {fileID: 0}
   id: 0
   rayLength: 0
   layerMask:

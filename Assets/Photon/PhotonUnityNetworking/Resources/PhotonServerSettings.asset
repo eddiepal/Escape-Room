@@ -36,5 +36,7 @@ MonoBehaviour:
   - ImInGame
   - SpawnPlayer
   - Initialize
+  - DamageFlash
+  - TakeDamage
   DisableAutoOpenWizard: 1
   ShowSettings: 0
