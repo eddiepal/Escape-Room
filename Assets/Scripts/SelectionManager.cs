@@ -1,15 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+
+//following tutorial from: https://www.youtube.com/watch?v=QDldZWvNK_E
 
 public class SelectionManager : MonoBehaviour
 {
     [SerializeField] private string selectableTag = "DoorButton";
 
-    private HighlightSelectionResponse _selectionResponse;
+    private ISelectionResponse _selectionResponse;
 
     private Transform _selection;
+
+    private void Awake()
+    {
+        _selectionResponse = GetComponent<ISelectionResponse>();
+    }
 
     public Transform Selection
     {
@@ -28,17 +36,20 @@ public class SelectionManager : MonoBehaviour
         #region Selection Determination
 
         // Creating a Ray
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
-        // Determining what was selected / Selection Determination
-        _selection = null;
-        if (Physics.Raycast(ray, out var hit))  
+        if (Camera.main != null)
         {
-            var selection = hit.transform;
-            
-            if (selection.CompareTag(selectableTag))
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+            // Determining what was selected / Selection Determination
+            _selection = null;
+            if (Physics.Raycast(ray, out var hit))  
             {
-                _selection = selection;
+                var selection = hit.transform;
+            
+                if (selection.CompareTag(selectableTag))
+                {
+                    _selection = selection;
+                }
             }
         }
 
@@ -49,26 +60,5 @@ public class SelectionManager : MonoBehaviour
         {
             _selectionResponse.OnSelect(_selection);
         }
-    }
-}
-
-internal class HighlightSelectionResponse : MonoBehaviour
-{
-    [SerializeField] public Material defaultMaterial;
-    [SerializeField] public Material highlightMaterial;
-
-    public void OnSelect(Transform selection)
-    {
-        var selectionRenderer = selection.GetComponent<Renderer>();
-        if (selectionRenderer != null)
-        {
-            selectionRenderer.material = this.highlightMaterial;
-        }
-    }
-
-    public void OnDeselect(Transform selection)
-    {
-        var selectionRenderer = selection.GetComponent<Renderer>();
-        selectionRenderer.material = this.defaultMaterial;
     }
 }
