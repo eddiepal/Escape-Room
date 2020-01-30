@@ -2,14 +2,18 @@ using UnityEngine;
 
 internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
 {
-    [SerializeField] public Material defaultMaterial;
-    [SerializeField] public Material highlightMaterial;
+    [SerializeField] private Material defaultMaterial;
+    [SerializeField] private Material highlightMaterial;
+
+    public Transform objectHolding;
 
     public void OnSelect(Transform selection)
     {
         var selectionRenderer = selection.GetComponent<Renderer>();
         if (selectionRenderer != null)
         {
+            selection.GetComponent<Rigidbody>().useGravity = false;
+            defaultMaterial = selectionRenderer.material;
             selectionRenderer.material = this.highlightMaterial;
         }
         if (Input.GetMouseButton(0))
@@ -22,6 +26,12 @@ internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
     public void OnDeselect(Transform selection)
     {
         var selectionRenderer = selection.GetComponent<Renderer>();
-        selectionRenderer.material = this.defaultMaterial;
+        selectionRenderer.material = defaultMaterial;
+        
+        if (Input.GetMouseButton(1))
+        {
+            selection.parent = null;
+            selection.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
 }
