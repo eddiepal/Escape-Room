@@ -24,8 +24,10 @@ internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
             if (Input.GetMouseButton(0))
             {
                 holdingObject = true;
+                selectionRenderer.material = defaultMaterial;
                 selection.GetComponent<Rigidbody>().useGravity = false;
                 selection.position = GameObject.Find("Destination").transform.position;
+                selection.rotation = GameObject.Find("Destination").transform.rotation;
                 selection.parent = GameObject.Find("Destination").transform;
             }
         }
