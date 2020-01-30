@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class SelectionManager : MonoBehaviour
 {
-    [SerializeField] private string selectableTag = "DoorButton";
+    [SerializeField] private string selectableTag;
 
     private ISelectionResponse _selectionResponse;
 
@@ -48,6 +48,7 @@ public class SelectionManager : MonoBehaviour
             
                 if (selection.CompareTag(selectableTag))
                 {
+                    Debug.Log(selectableTag);
                     _selection = selection;
                 }
             }

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - DoorButton
+  - LetterBox
   layers:
   - Default
   - TransparentFX

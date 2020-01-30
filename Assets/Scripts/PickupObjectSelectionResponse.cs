@@ -1,21 +1,22 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
+public class PickupObjectSelectionResponse : MonoBehaviour, ISelectionResponse
 {
     [SerializeField] public Material defaultMaterial;
     [SerializeField] public Material highlightMaterial;
 
+    public Transform theDest;
+
     public void OnSelect(Transform selection)
     {
-        var selectionRenderer = selection.GetComponent<Renderer>();
-        if (selectionRenderer != null)
-        {
-            selectionRenderer.material = this.highlightMaterial;
-        }
+        Debug.Log("In OnSelect method of PickupObjectSelectionResponse");
         if (Input.GetMouseButton(0))
         {
+            Debug.Log("In getmousebutton statement");
             selection.position = GameObject.Find("Destination").transform.position;
-            selection.parent = GameObject.Find("Destination").transform;
+            transform.parent = GameObject.Find("Destination").transform;
         }
     }
 

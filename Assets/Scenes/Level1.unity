@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 148899746}
   m_Layer: 0
   m_Name: LetterBox H
-  m_TagString: Untagged
+  m_TagString: LetterBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 440657951}
   m_Layer: 0
   m_Name: LetterBox M
-  m_TagString: Untagged
+  m_TagString: LetterBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2739,7 +2739,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16642
+  m_Name: pb_Mesh23538
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2907,6 +2907,7 @@ GameObject:
   - component: {fileID: 1088254243}
   - component: {fileID: 1088254242}
   - component: {fileID: 1088254244}
+  - component: {fileID: 1088254245}
   m_Layer: 0
   m_Name: SelectionManager
   m_TagString: Untagged
@@ -2926,7 +2927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33469c9927af3449b6d6b6c88dc02da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectableTag: DoorButton
+  selectableTag: LetterBox
 --- !u!4 &1088254243
 Transform:
   m_ObjectHideFlags: 0
@@ -2955,13 +2956,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultMaterial: {fileID: 2100000, guid: 3f52819f142ce2d4fb1db3635f1de28b, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 076e67636bb98bc4b840355f8c57ec0b, type: 2}
+--- !u!114 &1088254245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088254241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c70cde5eaece4a41b89f741680b103b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 0}
+  highlightMaterial: {fileID: 0}
+  theDest: {fileID: 0}
 --- !u!43 &1129099816
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-17156
+  m_Name: pb_Mesh23718
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5662,7 +5678,7 @@ GameObject:
   - component: {fileID: 1324501295}
   m_Layer: 0
   m_Name: LetterBox T
-  m_TagString: Untagged
+  m_TagString: LetterBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6136,7 +6152,7 @@ GameObject:
   - component: {fileID: 1563343138}
   m_Layer: 0
   m_Name: LetterBox A
-  m_TagString: Untagged
+  m_TagString: LetterBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6445,7 +6461,7 @@ GameObject:
   - component: {fileID: 1722402733}
   m_Layer: 0
   m_Name: LetterBox S
-  m_TagString: Untagged
+  m_TagString: LetterBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6949,7 +6965,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7324
+  m_Name: pb_Mesh23706
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7112,7 +7128,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16568
+  m_Name: pb_Mesh23686
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7535,7 +7551,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-16004
+  m_Name: pb_Mesh23550
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
