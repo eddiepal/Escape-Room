@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviourPun
 
     private bool flashingDamage;
 
-        [Header("Components")] 
+    [Header("Components")] 
     public Rigidbody rig;
     public Player photonPlayer;
     public MeshRenderer mr;
