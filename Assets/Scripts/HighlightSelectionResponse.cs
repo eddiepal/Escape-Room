@@ -29,6 +29,7 @@ internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
                 selection.position = GameObject.Find("Destination").transform.position;
                 selection.rotation = GameObject.Find("Destination").transform.rotation;
                 selection.parent = GameObject.Find("Destination").transform;
+                selection.GetComponent<MeshCollider>().enabled = false;
             }
         }
     }
@@ -50,6 +51,7 @@ internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
         {
             objectHolding.GetComponent<Rigidbody>().useGravity = true;
             objectHolding.parent = null;
+            objectHolding.GetComponent<MeshCollider>().enabled = true;
             holdingObject = false;
         }
     }
