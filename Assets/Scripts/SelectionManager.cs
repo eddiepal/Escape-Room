@@ -24,7 +24,7 @@ public class SelectionManager : MonoBehaviour
         set { _selection = value; }
         get { return _selection; }
     }
-
+    
     private void Update()
     {
         // Deselection/Selection Response
@@ -61,5 +61,7 @@ public class SelectionManager : MonoBehaviour
         {
             _selectionResponse.OnSelect(_selection);
         }
+        
+        _selectionResponse.DropObject();
     }
 }
