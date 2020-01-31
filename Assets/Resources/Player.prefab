@@ -732,6 +732,8 @@ GameObject:
   - component: {fileID: 3360533590415007335}
   - component: {fileID: 3231489892693064171}
   - component: {fileID: 9218481558972499340}
+  - component: {fileID: 6618087800264290132}
+  - component: {fileID: 847488131378665422}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -894,6 +896,36 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!114 &6618087800264290132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3360533590415007328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33469c9927af3449b6d6b6c88dc02da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectableTag: LetterBox
+--- !u!114 &847488131378665422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3360533590415007328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075184bde5a342f298528eaa4b7ad5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: 2e9d9f8247ff36d448fe52b8356aff59, type: 2}
+  objectHolding: {fileID: 0}
+  holdingObject: 0
+  theSelection: {fileID: 0}
 --- !u!1 &8782948256264190958
 GameObject:
   m_ObjectHideFlags: 0

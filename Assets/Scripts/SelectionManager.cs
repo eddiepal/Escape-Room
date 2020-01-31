@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEditor;
 using UnityEngine;
 
 //following tutorial from: https://www.youtube.com/watch?v=QDldZWvNK_E
 
-public class SelectionManager : MonoBehaviour
+public class SelectionManager : MonoBehaviourPun
 {
     [SerializeField] private string selectableTag;
 
@@ -27,6 +28,9 @@ public class SelectionManager : MonoBehaviour
     
     private void Update()
     {
+        if (!photonView.IsMine)  
+            return;
+        
         // Deselection/Selection Response
         if (_selection != null)
         {
@@ -35,8 +39,34 @@ public class SelectionManager : MonoBehaviour
 
         #region Selection Determination
 
+        CreateRay();
+
+        #endregion
+
+        // Deselection/Selection Response
+        if (_selection != null)
+        {
+            TestNet();
+            //photonView.RPC("TestNet", RpcTarget.All);
+        }
+
+
+        
+        _selectionResponse.DropObject();
+    }
+    
+    [PunRPC]
+    public void TestNet()
+    {
+        _selectionResponse.OnSelect(_selection);
+    }
+
+    
+    public void CreateRay()
+    {
         // Creating a Ray
-        if (Camera.main != null)
+        //Camera playerCamera = GameManager.instance.players[1].GetComponentInChildren<Camera>();
+        if (Camera.main != null && Camera.main == enabled)
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         
@@ -53,15 +83,5 @@ public class SelectionManager : MonoBehaviour
                 }
             }
         }
-
-        #endregion
-
-        // Deselection/Selection Response
-        if (_selection != null)
-        {
-            _selectionResponse.OnSelect(_selection);
-        }
-        
-        _selectionResponse.DropObject();
     }
 }

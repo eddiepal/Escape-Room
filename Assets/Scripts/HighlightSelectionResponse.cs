@@ -1,7 +1,8 @@
 
+using Photon.Pun;
 using UnityEngine;
 
-internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
+internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
 {
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material highlightMaterial;
@@ -9,10 +10,17 @@ internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
     public Transform objectHolding;
     [SerializeField] private bool holdingObject = false;
 
+    public Transform theSelection;
+    
+    [PunRPC]
     public void OnSelect(Transform selection)
     {
+        if (!photonView.IsMine)
+            return;
+        theSelection = selection;
         if (holdingObject == false)
         {
+            Debug.Log(selection.name);
             var selectionRenderer = selection.GetComponent<Renderer>();
             if (selectionRenderer != null)
             {
@@ -25,11 +33,16 @@ internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
             {
                 holdingObject = true;
                 selectionRenderer.material = defaultMaterial;
+
+                //selection.GetComponent<photon>()
+                
                 selection.GetComponent<Rigidbody>().useGravity = false;
                 selection.position = GameObject.Find("Destination").transform.position;
                 selection.rotation = GameObject.Find("Destination").transform.rotation;
                 selection.parent = GameObject.Find("Destination").transform;
                 selection.GetComponent<MeshCollider>().enabled = false;
+    
+                //photonView.RPC("DoThings", RpcTarget.All);
             }
         }
     }
@@ -54,5 +67,15 @@ internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
             objectHolding.GetComponent<MeshCollider>().enabled = true;
             holdingObject = false;
         }
+    }
+
+    [PunRPC]
+    public void DoThings()
+    {
+        theSelection.GetComponent<Rigidbody>().useGravity = false;
+        theSelection.position = GameObject.Find("Destination").transform.position;
+        theSelection.rotation = GameObject.Find("Destination").transform.rotation;
+        theSelection.parent = GameObject.Find("Destination").transform;
+        theSelection.GetComponent<MeshCollider>().enabled = false;
     }
 }
