@@ -26,6 +26,11 @@ public class PickupObjectSelectionResponse : MonoBehaviour, ISelectionResponse
         selectionRenderer.material = this.defaultMaterial;
     }
 
+    public void DropObject(Transform selection)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void DropObject()
     {
         throw new System.NotImplementedException();

@@ -926,8 +926,6 @@ MonoBehaviour:
   objectHolding: {fileID: 0}
   holdingObject: 0
   theSelection: {fileID: 0}
-  sender: {fileID: 0}
-  target: {fileID: 0}
 --- !u!1 &8782948256264190958
 GameObject:
   m_ObjectHideFlags: 0

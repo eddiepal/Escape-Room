@@ -26,7 +26,8 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
                 selectionRenderer.material = this.highlightMaterial;
             }
 
-            objectHolding = selection;
+            photonView.RPC("updateHeldObject", RpcTarget.All, selection.GetComponent<PhotonView>().ViewID);
+            
             if (Input.GetMouseButton(0))
             {
                 holdingObject = true;
@@ -38,6 +39,13 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         }
     }
 
+    [PunRPC]
+    public void updateHeldObject(int viewId)
+    {
+        Transform tempHold = PhotonView.Find(viewId).transform;
+        objectHolding = tempHold;
+    }
+
     public void OnDeselect(Transform selection)
     {
         if (!holdingObject)
@@ -47,15 +55,23 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         }
     }
 
-    public void DropObject()
+    public void DropObject(Transform selection)
     {
         if (holdingObject && Input.GetMouseButton(1))
         {
-            objectHolding.GetComponent<Rigidbody>().useGravity = true;
-            objectHolding.parent = null;
-            objectHolding.GetComponent<MeshCollider>().enabled = true;
             holdingObject = false;
+            photonView.RPC("UpdateObjectComponents", RpcTarget.All, objectHolding.GetComponent<PhotonView>().ViewID);
         }
+    }
+
+    [PunRPC]
+    public void UpdateObjectComponents(int viewId)
+    {
+        Transform tempHold = PhotonView.Find(viewId).transform;
+
+        tempHold.GetComponent<Rigidbody>().useGravity = true;
+        tempHold.parent = null;
+        tempHold.GetComponent<MeshCollider>().enabled = true;
     }
 
     [PunRPC]
@@ -72,15 +88,5 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     }
     
     
-    public Transform sender;
-    public Transform target;
 
-
-
-    [PunRPC]
-    void SomeFunction(int senderView, int targetView){
-        sender = PhotonView.Find (senderView).transform;
-        target = PhotonView.Find(targetView).transform;
-//do stuff with the transforms(works with GOs, rigidbodies or any other component of the GO)
-    }
 }

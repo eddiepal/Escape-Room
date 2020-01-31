@@ -52,8 +52,9 @@ public class SelectionManager : MonoBehaviourPun
 
 
         
-        _selectionResponse.DropObject();
+        _selectionResponse.DropObject(_selection);
     }
+    
     
     [PunRPC]
     public void TestNet()
