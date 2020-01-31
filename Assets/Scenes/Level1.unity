@@ -444,7 +444,6 @@ GameObject:
   - component: {fileID: 148899746}
   - component: {fileID: 148899750}
   - component: {fileID: 148899752}
-  - component: {fileID: 148899751}
   - component: {fileID: 148899753}
   m_Layer: 0
   m_Name: LetterBox H
@@ -758,21 +757,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &148899751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148899744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
 --- !u!114 &148899752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,10 +772,10 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 0
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 148899751}
+  - {fileID: 0}
   viewIdField: 13
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -823,7 +807,6 @@ GameObject:
   - component: {fileID: 440657951}
   - component: {fileID: 440657955}
   - component: {fileID: 440657957}
-  - component: {fileID: 440657956}
   - component: {fileID: 440657958}
   m_Layer: 0
   m_Name: LetterBox M
@@ -1137,21 +1120,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &440657956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440657949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
 --- !u!114 &440657957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,10 +1135,10 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 0
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 440657956}
+  - {fileID: 0}
   viewIdField: 10
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2879,7 +2847,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh60848
+  m_Name: pb_Mesh82100
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3143,7 +3111,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh61054
+  m_Name: pb_Mesh82306
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5844,7 +5812,6 @@ GameObject:
   - component: {fileID: 1324501295}
   - component: {fileID: 1324501299}
   - component: {fileID: 1324501301}
-  - component: {fileID: 1324501300}
   - component: {fileID: 1324501302}
   m_Layer: 0
   m_Name: LetterBox T
@@ -6158,21 +6125,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &1324501300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324501293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
 --- !u!114 &1324501301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6188,10 +6140,10 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 0
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 1324501300}
+  - {fileID: 0}
   viewIdField: 11
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -6388,7 +6340,6 @@ GameObject:
   - component: {fileID: 1563343138}
   - component: {fileID: 1563343142}
   - component: {fileID: 1563343144}
-  - component: {fileID: 1563343143}
   - component: {fileID: 1563343145}
   m_Layer: 0
   m_Name: LetterBox A
@@ -6702,21 +6653,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &1563343143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563343136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
 --- !u!114 &1563343144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6732,10 +6668,10 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 0
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 1563343143}
+  - {fileID: 0}
   viewIdField: 6
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -6767,7 +6703,6 @@ GameObject:
   - component: {fileID: 1722402733}
   - component: {fileID: 1722402737}
   - component: {fileID: 1722402739}
-  - component: {fileID: 1722402738}
   - component: {fileID: 1722402740}
   m_Layer: 0
   m_Name: LetterBox S
@@ -7081,21 +7016,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &1722402738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722402731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
 --- !u!114 &1722402739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7111,10 +7031,10 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 0
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 1722402738}
+  - {fileID: 0}
   viewIdField: 12
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -7341,7 +7261,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh61036
+  m_Name: pb_Mesh82288
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7504,7 +7424,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh61010
+  m_Name: pb_Mesh82262
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7927,7 +7847,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh60866
+  m_Name: pb_Mesh82118
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
