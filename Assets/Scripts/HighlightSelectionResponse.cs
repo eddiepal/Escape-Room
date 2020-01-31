@@ -15,12 +15,10 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     [PunRPC]
     public void OnSelect(Transform selection)
     {
-        if (!photonView.IsMine)
-            return;
+
         theSelection = selection;
         if (holdingObject == false)
         {
-            Debug.Log(selection.name);
             var selectionRenderer = selection.GetComponent<Renderer>();
             if (selectionRenderer != null)
             {
@@ -33,16 +31,9 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
             {
                 holdingObject = true;
                 selectionRenderer.material = defaultMaterial;
-
-                //selection.GetComponent<photon>()
                 
-                selection.GetComponent<Rigidbody>().useGravity = false;
-                selection.position = GameObject.Find("Destination").transform.position;
-                selection.rotation = GameObject.Find("Destination").transform.rotation;
-                selection.parent = GameObject.Find("Destination").transform;
-                selection.GetComponent<MeshCollider>().enabled = false;
-    
-                //photonView.RPC("DoThings", RpcTarget.All);
+                photonView.RPC("PickupObject", RpcTarget.All, selection.GetComponent<PhotonView>().ViewID);
+
             }
         }
     }
@@ -58,8 +49,6 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
 
     public void DropObject()
     {
-        Debug.Log("In DropObject method");
-        
         if (holdingObject && Input.GetMouseButton(1))
         {
             objectHolding.GetComponent<Rigidbody>().useGravity = true;
@@ -70,12 +59,28 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     }
 
     [PunRPC]
-    public void DoThings()
+    public void PickupObject(int viewId)
     {
-        theSelection.GetComponent<Rigidbody>().useGravity = false;
-        theSelection.position = GameObject.Find("Destination").transform.position;
-        theSelection.rotation = GameObject.Find("Destination").transform.rotation;
-        theSelection.parent = GameObject.Find("Destination").transform;
-        theSelection.GetComponent<MeshCollider>().enabled = false;
+        Transform tempHold = PhotonView.Find(viewId).transform;
+        GameObject childGameObject = gameObject.transform.GetChild(0).gameObject;
+        
+        tempHold.GetComponent<Rigidbody>().useGravity = false;
+        tempHold.GetComponent<MeshCollider>().enabled = false;
+        tempHold.position = childGameObject.transform.position;
+        tempHold.rotation = childGameObject.transform.rotation;
+        tempHold.parent = childGameObject.transform;
+    }
+    
+    
+    public Transform sender;
+    public Transform target;
+
+
+
+    [PunRPC]
+    void SomeFunction(int senderView, int targetView){
+        sender = PhotonView.Find (senderView).transform;
+        target = PhotonView.Find(targetView).transform;
+//do stuff with the transforms(works with GOs, rigidbodies or any other component of the GO)
     }
 }

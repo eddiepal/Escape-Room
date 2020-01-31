@@ -42,5 +42,7 @@ MonoBehaviour:
   - testNet
   - DoThings
   - TestNet
+  - PickupObject
+  - SomeFunction
   DisableAutoOpenWizard: 1
   ShowSettings: 0

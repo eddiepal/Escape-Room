@@ -22,15 +22,15 @@ public class SelectionManager : MonoBehaviourPun
 
     public Transform Selection
     {
-        set { _selection = value; }
-        get { return _selection; }
+        set => _selection = value;
+        get => _selection;
     }
     
     private void Update()
     {
         if (!photonView.IsMine)  
             return;
-        
+
         // Deselection/Selection Response
         if (_selection != null)
         {
