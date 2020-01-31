@@ -1,24 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEditor;
 using UnityEngine;
 
-public class SelectionManager : MonoBehaviour
-{
-    [SerializeField] private string selectableTag = "DoorButton";
+//following tutorial from: https://www.youtube.com/watch?v=QDldZWvNK_E
 
-    private HighlightSelectionResponse _selectionResponse;
+public class SelectionManager : MonoBehaviourPun
+{
+    [SerializeField] private string selectableTag;
+
+    private ISelectionResponse _selectionResponse;
 
     private Transform _selection;
 
-    public Transform Selection
+    private void Awake()
     {
-        set { _selection = value; }
-        get { return _selection; }
+        _selectionResponse = GetComponent<ISelectionResponse>();
     }
 
+    public Transform Selection
+    {
+        set => _selection = value;
+        get => _selection;
+    }
+    
     private void Update()
     {
+        if (!photonView.IsMine)  
+            return;
+
         // Deselection/Selection Response
         if (_selection != null)
         {
@@ -27,48 +39,50 @@ public class SelectionManager : MonoBehaviour
 
         #region Selection Determination
 
-        // Creating a Ray
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
-        // Determining what was selected / Selection Determination
-        _selection = null;
-        if (Physics.Raycast(ray, out var hit))  
-        {
-            var selection = hit.transform;
-            
-            if (selection.CompareTag(selectableTag))
-            {
-                _selection = selection;
-            }
-        }
+        CreateRay();
 
         #endregion
 
         // Deselection/Selection Response
         if (_selection != null)
         {
-            _selectionResponse.OnSelect(_selection);
+            TestNet();
+            //photonView.RPC("TestNet", RpcTarget.All);
         }
+
+
+        
+        _selectionResponse.DropObject(_selection);
     }
-}
-
-internal class HighlightSelectionResponse : MonoBehaviour
-{
-    [SerializeField] public Material defaultMaterial;
-    [SerializeField] public Material highlightMaterial;
-
-    public void OnSelect(Transform selection)
+    
+    
+    [PunRPC]
+    public void TestNet()
     {
-        var selectionRenderer = selection.GetComponent<Renderer>();
-        if (selectionRenderer != null)
+        _selectionResponse.OnSelect(_selection);
+    }
+
+    
+    public void CreateRay()
+    {
+        // Creating a Ray
+        //Camera playerCamera = GameManager.instance.players[1].GetComponentInChildren<Camera>();
+        if (Camera.main != null && Camera.main == enabled)
         {
-            selectionRenderer.material = this.highlightMaterial;
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+            // Determining what was selected / Selection Determination
+            _selection = null;
+            if (Physics.Raycast(ray, out var hit))  
+            {
+                var selection = hit.transform;
+            
+                if (selection.CompareTag(selectableTag))
+                {
+                    Debug.Log(selectableTag);
+                    _selection = selection;
+                }
+            }
         }
-    }
-
-    public void OnDeselect(Transform selection)
-    {
-        var selectionRenderer = selection.GetComponent<Renderer>();
-        selectionRenderer.material = this.defaultMaterial;
     }
 }

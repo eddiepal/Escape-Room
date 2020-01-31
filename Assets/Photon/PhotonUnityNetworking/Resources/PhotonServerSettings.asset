@@ -36,5 +36,15 @@ MonoBehaviour:
   - ImInGame
   - SpawnPlayer
   - Initialize
+  - DamageFlash
+  - TakeDamage
+  - OnSelect
+  - testNet
+  - DoThings
+  - TestNet
+  - PickupObject
+  - SomeFunction
+  - UpdateObjectComponents
+  - updateHeldObject
   DisableAutoOpenWizard: 1
   ShowSettings: 0
