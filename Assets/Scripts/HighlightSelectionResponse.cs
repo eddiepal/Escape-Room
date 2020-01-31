@@ -80,11 +80,12 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         Transform tempHold = PhotonView.Find(viewId).transform;
         GameObject childGameObject = gameObject.transform.GetChild(0).gameObject;
         
-        tempHold.GetComponent<Rigidbody>().useGravity = false;
-        tempHold.GetComponent<MeshCollider>().enabled = false;
         tempHold.position = childGameObject.transform.position;
         tempHold.rotation = childGameObject.transform.rotation;
         tempHold.parent = childGameObject.transform;
+        tempHold.GetComponent<Rigidbody>().useGravity = false;
+        tempHold.GetComponent<MeshCollider>().enabled = false;
+ 
     }
     
     

@@ -79,7 +79,6 @@ public class SelectionManager : MonoBehaviourPun
             
                 if (selection.CompareTag(selectableTag))
                 {
-                    Debug.Log(selectableTag);
                     _selection = selection;
                 }
             }

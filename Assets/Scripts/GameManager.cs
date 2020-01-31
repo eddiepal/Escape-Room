@@ -10,6 +10,13 @@ public class GameManager : MonoBehaviourPun
     public PlayerController[] players;
     public Transform[] spawnPoints;
     public int alivePlayers;
+    private static int lettersPlacedCorrectly = 0;
+
+    public int LettersPlacedCorrectly
+    {
+        get => lettersPlacedCorrectly;
+        set => lettersPlacedCorrectly = value;
+    }
 
     private int playersInGame;
 
