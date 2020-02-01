@@ -33,6 +33,17 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
                 holdingObject = true;
                 selectionRenderer.material = defaultMaterial;
                 
+                if (selection.gameObject.name == "LetterBox M")
+                    GameManager.instance.LetterPlaced[0] = false;
+                if (selection.gameObject.name == "LetterBox A")
+                    GameManager.instance.LetterPlaced[1] = false;
+                if (selection.gameObject.name == "LetterBox T")
+                    GameManager.instance.LetterPlaced[2] = false;
+                if (selection.gameObject.name == "LetterBox H")
+                    GameManager.instance.LetterPlaced[3] = false;
+                if (selection.gameObject.name == "LetterBox S")
+                    GameManager.instance.LetterPlaced[4] = false;
+                
                 photonView.RPC("PickupObject", RpcTarget.All, selection.GetComponent<PhotonView>().ViewID);
 
             }

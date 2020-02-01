@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviourPun
     public Transform[] spawnPoints;
     public int alivePlayers;
     private static int lettersPlacedCorrectly = 0;
+    private static bool[] letterPlaced = {false,false,false,false,false};
+
+    public bool[] LetterPlaced
+    {
+        get => letterPlaced;
+        set => letterPlaced = value;
+    }
 
     public int LettersPlacedCorrectly
     {
