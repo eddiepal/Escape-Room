@@ -32,18 +32,7 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
             {
                 holdingObject = true;
                 selectionRenderer.material = defaultMaterial;
-                
-                if (selection.gameObject.name == "LetterBox M")
-                    GameManager.instance.LetterPlaced[0] = false;
-                if (selection.gameObject.name == "LetterBox A")
-                    GameManager.instance.LetterPlaced[1] = false;
-                if (selection.gameObject.name == "LetterBox T")
-                    GameManager.instance.LetterPlaced[2] = false;
-                if (selection.gameObject.name == "LetterBox H")
-                    GameManager.instance.LetterPlaced[3] = false;
-                if (selection.gameObject.name == "LetterBox S")
-                    GameManager.instance.LetterPlaced[4] = false;
-                
+
                 photonView.RPC("PickupObject", RpcTarget.All, selection.GetComponent<PhotonView>().ViewID);
 
             }
@@ -90,12 +79,23 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     {
         Transform tempHold = PhotonView.Find(viewId).transform;
         GameObject childGameObject = gameObject.transform.GetChild(0).gameObject;
-        
+
         tempHold.position = childGameObject.transform.position;
         tempHold.rotation = childGameObject.transform.rotation;
         tempHold.parent = childGameObject.transform;
         tempHold.GetComponent<Rigidbody>().useGravity = false;
         tempHold.GetComponent<MeshCollider>().enabled = false;
+        
+        if (tempHold.gameObject.name == "LetterBox M")
+            GameManager.instance.LetterPlaced[0] = false;
+        if (tempHold.gameObject.name == "LetterBox A")
+            GameManager.instance.LetterPlaced[1] = false;
+        if (tempHold.gameObject.name == "LetterBox T")
+            GameManager.instance.LetterPlaced[2] = false;
+        if (tempHold.gameObject.name == "LetterBox H")
+            GameManager.instance.LetterPlaced[3] = false;
+        if (tempHold.gameObject.name == "LetterBox S")
+            GameManager.instance.LetterPlaced[4] = false;
  
     }
     

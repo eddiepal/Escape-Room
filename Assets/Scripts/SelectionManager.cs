@@ -15,6 +15,8 @@ public class SelectionManager : MonoBehaviourPun
 
     private Transform _selection;
 
+    private bool alreadyExecuted = false;
+
     private void Awake()
     {
         _selectionResponse = GetComponent<ISelectionResponse>();
@@ -31,6 +33,12 @@ public class SelectionManager : MonoBehaviourPun
         if (!photonView.IsMine)  
             return;
 
+        if (GameManager.instance.WordMade && alreadyExecuted == false)
+        {
+            alreadyExecuted = true;
+            selectableTag = "Test";
+        }
+
         // Deselection/Selection Response
         if (_selection != null)
         {
@@ -46,23 +54,12 @@ public class SelectionManager : MonoBehaviourPun
         // Deselection/Selection Response
         if (_selection != null)
         {
-            TestNet();
-            //photonView.RPC("TestNet", RpcTarget.All);
+            _selectionResponse.OnSelect(_selection);
         }
 
-
-        
         _selectionResponse.DropObject(_selection);
     }
-    
-    
-    [PunRPC]
-    public void TestNet()
-    {
-        _selectionResponse.OnSelect(_selection);
-    }
-
-    
+ 
     public void CreateRay()
     {
         // Creating a Ray

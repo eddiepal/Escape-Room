@@ -10,21 +10,22 @@ public class GameManager : MonoBehaviourPun
     public PlayerController[] players;
     public Transform[] spawnPoints;
     public int alivePlayers;
-    private static int lettersPlacedCorrectly = 0;
+    
     private static bool[] letterPlaced = {false,false,false,false,false};
+    private static bool wordMade = false;
+
+    public bool WordMade
+    {
+        get => wordMade;
+        set => wordMade = value;
+    }
 
     public bool[] LetterPlaced
     {
         get => letterPlaced;
         set => letterPlaced = value;
     }
-
-    public int LettersPlacedCorrectly
-    {
-        get => lettersPlacedCorrectly;
-        set => lettersPlacedCorrectly = value;
-    }
-
+    
     private int playersInGame;
 
 // instance

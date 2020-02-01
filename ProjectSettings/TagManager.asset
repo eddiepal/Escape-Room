@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DoorButton
   - LetterBox
+  - Test
   layers:
   - Default
   - TransparentFX
