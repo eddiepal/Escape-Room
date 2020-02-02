@@ -9,6 +9,8 @@ using UnityEngine.Experimental.PlayerLoop;
 
 public class PressurePlate : MonoBehaviourPun
 {
+    [SerializeField] private TextMeshPro questionText;
+    
     private void OnCollisionEnter(Collision other)
     {
         if (GameManager.instance.WordMade == false)
@@ -26,8 +28,8 @@ public class PressurePlate : MonoBehaviourPun
             
             if (AllLettersPlaced())
             {
-                gameObject.SetActive(false);
                 GameManager.instance.WordMade = true;
+                questionText.text = "Well done!";
             }
         }
     }

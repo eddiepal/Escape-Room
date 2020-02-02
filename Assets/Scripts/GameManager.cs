@@ -57,6 +57,14 @@ public class GameManager : MonoBehaviourPun
     void SpawnPlayer ()
     {
         GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabLocation, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+        if (playerObj.GetComponent<PlayerController>().id == 0)
+        {
+            playerObj.transform.position = spawnPoints[0].transform.position;
+        }
+        else if (playerObj.GetComponent<PlayerController>().id == 1)
+        {
+            playerObj.transform.position = spawnPoints[1].transform.position;
+        }
 
         // initialize the player for all other players
         playerObj.GetComponent<PlayerController>().photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer);
