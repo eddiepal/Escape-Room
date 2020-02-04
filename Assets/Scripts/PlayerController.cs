@@ -31,18 +31,25 @@ public class PlayerController : MonoBehaviourPun
     public float rayLength;
 
     public LayerMask layerMask;
-    
-    void Update ()
+
+    void Update()
     {
         if (!photonView.IsMine || dead)
             return;
-        
-        Move();
- 
-        if(Input.GetKeyDown(KeyCode.Space))
-            TryJump();
+
+        if (PauseMenu.gamePaused == false)
+        {
+            Move();
+            
+            if (Input.GetKeyDown(KeyCode.Space))
+                TryJump();
+        }
+        else
+        {
+            
+        }
     }
-    
+
     void Move ()
     {
         // get the input axis
