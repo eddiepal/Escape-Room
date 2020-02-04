@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+//https://www.youtube.com/watch?v=CA2snUe7ARM Fantastic tutorial
+
+public class Health : MonoBehaviourPun
 {
     [SerializeField] private int maxHealth = 100;
 
@@ -16,6 +19,7 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    [PunRPC]
     public void ModifyHealth(int amount)
     {
         currentHealth += amount;
@@ -26,7 +30,7 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-            ModifyHealth(-10);
+        if(Input.GetKeyDown(KeyCode.F))
+            photonView.RPC("ModifyHealth", RpcTarget.All, -10);
     }
 }

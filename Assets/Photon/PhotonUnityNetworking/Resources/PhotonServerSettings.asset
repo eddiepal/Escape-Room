@@ -46,5 +46,6 @@ MonoBehaviour:
   - SomeFunction
   - UpdateObjectComponents
   - updateHeldObject
+  - ModifyHealth
   DisableAutoOpenWizard: 1
   ShowSettings: 0

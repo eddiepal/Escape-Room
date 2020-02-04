@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+//https://www.youtube.com/watch?v=CA2snUe7ARM Fantastic tutorial
+
+public class HealthBar : MonoBehaviourPun
 {
     [SerializeField] private Image foregroundImage;
     [SerializeField] private float updateSpeedSeconds = 0.5f;
@@ -30,13 +33,15 @@ public class HealthBar : MonoBehaviour
             foregroundImage.fillAmount = Mathf.Lerp(preChangePct, pct, elapsed / updateSpeedSeconds);
             yield return null;
         }
-
         foregroundImage.fillAmount = pct;
     }
 
     private void LateUpdate()
     {
-        transform.LookAt(Camera.main.transform);
-        transform.Rotate(0,180,0);
+        if (Camera.main.transform != null)
+        {
+            transform.LookAt(Camera.main.transform);
+            transform.Rotate(0,180,0);
+        }
     }
 }
