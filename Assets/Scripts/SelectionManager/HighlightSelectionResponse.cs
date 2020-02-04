@@ -60,18 +60,19 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         if (holdingObject && Input.GetMouseButton(1))
         {
             holdingObject = false;
-            photonView.RPC("UpdateObjectComponents", RpcTarget.All, objectHolding.GetComponent<PhotonView>().ViewID);
+            photonView.RPC("UpdateObjectComponents", RpcTarget.All, objectHolding.GetComponent<PhotonView>().ViewID, objectHolding.transform.position, objectHolding.transform.rotation);
         }
     }
 
     [PunRPC]
-    public void UpdateObjectComponents(int viewId)
+    public void UpdateObjectComponents(int viewId, Vector3 position, Quaternion rotation)
     {
         Transform tempHold = PhotonView.Find(viewId).transform;
-
-        tempHold.GetComponent<Rigidbody>().useGravity = true;
         tempHold.parent = null;
+        tempHold.GetComponent<Rigidbody>().useGravity = true;
         tempHold.GetComponent<MeshCollider>().enabled = true;
+        tempHold.transform.position = position;
+        tempHold.transform.rotation = rotation;
     }
 
     [PunRPC]
