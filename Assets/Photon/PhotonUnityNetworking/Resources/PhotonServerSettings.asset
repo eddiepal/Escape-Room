@@ -31,21 +31,17 @@ MonoBehaviour:
   RpcList:
   - ClickRpc
   - DestroyRpc
-  - UpdateLobbyUI
   - ChangeScene
-  - ImInGame
-  - SpawnPlayer
-  - Initialize
   - DamageFlash
-  - TakeDamage
-  - OnSelect
-  - testNet
-  - DoThings
-  - TestNet
-  - PickupObject
-  - SomeFunction
-  - UpdateObjectComponents
-  - updateHeldObject
+  - ImInGame
+  - Initialize
   - ModifyHealth
+  - OnSelect
+  - PickupObject
+  - SpawnPlayer
+  - TakeDamage
+  - updateHeldObject
+  - UpdateLobbyUI
+  - UpdateObjectComponents
   DisableAutoOpenWizard: 1
   ShowSettings: 0

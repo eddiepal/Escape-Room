@@ -5,7 +5,7 @@ using System.Linq;
 using Photon.Pun;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
+// unity engine.Experimental.PlayerLoop;
 
 public class PressurePlate : MonoBehaviourPun
 {
