@@ -257,9 +257,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ButtonSeltion",
+                    "name": "OpenChatPanel",
                     "type": "Button",
-                    "id": "8e8e597f-3c98-4a69-bb47-91db35d84fe5",
+                    "id": "4db20601-e943-4606-a84c-a3bb2ef71b26",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -301,12 +301,12 @@
                 },
                 {
                     "name": "",
-                    "id": "0137c3d8-b9b5-4f41-ab23-70308cea8397",
-                    "path": "",
+                    "id": "0de21925-6a17-424a-b787-1167178d2bfe",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ButtonSeltion",
+                    "action": "OpenChatPanel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

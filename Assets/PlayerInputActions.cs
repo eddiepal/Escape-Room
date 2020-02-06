@@ -270,9 +270,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""ButtonSeltion"",
+                    ""name"": ""OpenChatPanel"",
                     ""type"": ""Button"",
-                    ""id"": ""8e8e597f-3c98-4a69-bb47-91db35d84fe5"",
+                    ""id"": ""4db20601-e943-4606-a84c-a3bb2ef71b26"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -314,12 +314,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0137c3d8-b9b5-4f41-ab23-70308cea8397"",
-                    ""path"": """",
+                    ""id"": ""0de21925-6a17-424a-b787-1167178d2bfe"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ButtonSeltion"",
+                    ""action"": ""OpenChatPanel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -351,7 +351,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         // Pause Menu
         m_PauseMenu = asset.FindActionMap("Pause Menu", throwIfNotFound: true);
         m_PauseMenu_PauseGame = m_PauseMenu.FindAction("Pause Game", throwIfNotFound: true);
-        m_PauseMenu_ButtonSeltion = m_PauseMenu.FindAction("ButtonSeltion", throwIfNotFound: true);
+        m_PauseMenu_OpenChatPanel = m_PauseMenu.FindAction("OpenChatPanel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -475,13 +475,13 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PauseMenu;
     private IPauseMenuActions m_PauseMenuActionsCallbackInterface;
     private readonly InputAction m_PauseMenu_PauseGame;
-    private readonly InputAction m_PauseMenu_ButtonSeltion;
+    private readonly InputAction m_PauseMenu_OpenChatPanel;
     public struct PauseMenuActions
     {
         private @PlayerInputActions m_Wrapper;
         public PauseMenuActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @PauseGame => m_Wrapper.m_PauseMenu_PauseGame;
-        public InputAction @ButtonSeltion => m_Wrapper.m_PauseMenu_ButtonSeltion;
+        public InputAction @OpenChatPanel => m_Wrapper.m_PauseMenu_OpenChatPanel;
         public InputActionMap Get() { return m_Wrapper.m_PauseMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -494,9 +494,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @PauseGame.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnPauseGame;
                 @PauseGame.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnPauseGame;
                 @PauseGame.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnPauseGame;
-                @ButtonSeltion.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnButtonSeltion;
-                @ButtonSeltion.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnButtonSeltion;
-                @ButtonSeltion.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnButtonSeltion;
+                @OpenChatPanel.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnOpenChatPanel;
+                @OpenChatPanel.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnOpenChatPanel;
+                @OpenChatPanel.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnOpenChatPanel;
             }
             m_Wrapper.m_PauseMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -504,9 +504,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @PauseGame.started += instance.OnPauseGame;
                 @PauseGame.performed += instance.OnPauseGame;
                 @PauseGame.canceled += instance.OnPauseGame;
-                @ButtonSeltion.started += instance.OnButtonSeltion;
-                @ButtonSeltion.performed += instance.OnButtonSeltion;
-                @ButtonSeltion.canceled += instance.OnButtonSeltion;
+                @OpenChatPanel.started += instance.OnOpenChatPanel;
+                @OpenChatPanel.performed += instance.OnOpenChatPanel;
+                @OpenChatPanel.canceled += instance.OnOpenChatPanel;
             }
         }
     }
@@ -532,6 +532,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     public interface IPauseMenuActions
     {
         void OnPauseGame(InputAction.CallbackContext context);
-        void OnButtonSeltion(InputAction.CallbackContext context);
+        void OnOpenChatPanel(InputAction.CallbackContext context);
     }
 }

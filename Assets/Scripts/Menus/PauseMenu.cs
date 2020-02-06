@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         inputAction = new PlayerInputActions();
+        Debug.Log("In awake method of pause menu class");
     }
 
     // Update is called once per frame

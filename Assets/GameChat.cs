@@ -10,26 +10,38 @@ public class GameChat : MonoBehaviourPun
     [SerializeField] private GameObject panel;
     [SerializeField] private TextMeshProUGUI chatText;
     [SerializeField] private TMP_InputField messageToSend;
+    
+    public static bool chatIsOpen = false;
 
     private void Awake()
     {
-       
+        Debug.Log("In awake method of game chat class");
+
+        PlayerInput.playerInput.controls.PauseMenu.OpenChatPanel.performed += ctx => OpenChat();
     }
 
     [PunRPC]
     public void OpenChat()
     {
-        panel.SetActive(true);
-    }
-
-    public void CloseChat()
-    {
-        panel.SetActive(false);
+        if (!chatIsOpen)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            PlayerInput.playerInput.DisablePlayerControls();
+            panel.SetActive(true);
+            chatIsOpen = true;
+        }
+        else if (chatIsOpen)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            PlayerInput.playerInput.EnablePlayerControls();
+            panel.SetActive(false);
+            chatIsOpen = false;
+        }
     }
 
     public void AmendChat()
     {
-        photonView.RPC("SendMessage", RpcTarget.Others, messageToSend.text);
+        photonView.RPC("SendChatMessage", RpcTarget.All, messageToSend.text);
         photonView.RPC("OpenChat", RpcTarget.Others);
     }
 
@@ -37,7 +49,7 @@ public class GameChat : MonoBehaviourPun
     public void SendChatMessage(String message)
     {
         chatText.text += "\n";
-        chatText.text += message;
+        chatText.text += PhotonNetwork.LocalPlayer.NickName + ": " + message;
 
     }
 }

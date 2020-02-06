@@ -23,11 +23,10 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         inputAction = new PlayerInputActions();
-        PlayerInput.playerInput.controls.PlayerControls.MoveCamera.performed += ctx => cameraInput = ctx.ReadValue<Vector2>();
-        
+        PlayerInput.playerInput.controls.PlayerControls.MoveCamera.performed +=
+            ctx => cameraInput = ctx.ReadValue<Vector2>();
     }
- 
-    
+
     void Start ()
     {
         // lock the cursor to the middle of the screen
@@ -39,7 +38,7 @@ public class CameraController : MonoBehaviour
         rotX += cameraInput.x * sensX;
         rotY += cameraInput.y * sensY;
 
-        if (!PauseMenu.gamePaused)
+        if (!PauseMenu.gamePaused && !GameChat.chatIsOpen)
         {
             rotX += Input.GetAxis("Mouse X") * sensX;
             rotY += Input.GetAxis("Mouse Y") * sensY;
