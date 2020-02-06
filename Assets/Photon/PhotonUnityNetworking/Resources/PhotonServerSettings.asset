@@ -43,5 +43,8 @@ MonoBehaviour:
   - updateHeldObject
   - UpdateLobbyUI
   - UpdateObjectComponents
+  - OpenChat
+  - SendMessage
+  - SendChatMessage
   DisableAutoOpenWizard: 1
   ShowSettings: 0

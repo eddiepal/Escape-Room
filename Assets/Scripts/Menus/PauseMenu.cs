@@ -44,6 +44,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        PlayerInput.playerInput.EnablePlayerControls();
         pauseMenuUI.SetActive(false);
         hudPanel.SetActive(true);
         gamePaused = false;
