@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviourPun
     private static bool[] letterPlaced = {false,false,false,false,false};
     private static bool wordMade = false;
 
+    [field: SerializeField] public bool UsingController { get; }
+
     public bool WordMade
     {
         get => wordMade;

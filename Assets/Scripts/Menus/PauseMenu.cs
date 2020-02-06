@@ -12,20 +12,32 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject hudPanel;
     [SerializeField] private GameObject instructionsPanel;
 
+    private PlayerInputActions inputAction;
+    private Vector2 movementInput;
+
+    private void Awake()
+    {
+        inputAction = new PlayerInputActions();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (PlayerInput.playerInput.controls.PauseMenu.PauseGame.triggered)
         {
             if (gamePaused)
             {
-                Resume();
+                PlayerInput.playerInput.EnablePlayerControls();
                 Cursor.lockState = CursorLockMode.Locked;
+                Resume();
+               
+                
             }
             else
             {
-                Pause();
+                PlayerInput.playerInput.DisablePlayerControls();
                 Cursor.lockState = CursorLockMode.None;
+                Pause();
             }
         }
     }

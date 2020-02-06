@@ -10,7 +10,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviourPun
 {
     [SerializeField] private TextMeshPro questionText;
-    
+
     private void OnCollisionEnter(Collision other)
     {
         if (GameManager.instance.WordMade == false)

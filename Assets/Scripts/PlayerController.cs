@@ -31,30 +31,38 @@ public class PlayerController : MonoBehaviourPun
     public float rayLength;
 
     public LayerMask layerMask;
+    private PlayerInputActions inputAction;
+
+    private Vector2 movementInput;
+
+    private void Awake()
+    {
+        inputAction = new PlayerInputActions();
+        PlayerInput.playerInput.controls.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        PlayerInput.playerInput.controls.PlayerControls.Jump.performed += ctx => TryJump();
+
+    }
+
 
     void Update()
     {
         if (!photonView.IsMine || dead)
             return;
 
+        Move();
         if (PauseMenu.gamePaused == false)
         {
-            Move();
-            
-            if (Input.GetKeyDown(KeyCode.Space))
-                TryJump();
-        }
-        else
-        {
-            
+           
         }
     }
 
     void Move ()
     {
         // get the input axis
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+       // float x = Input.GetAxis("Horizontal");
+        //float z = Input.GetAxis("Vertical");
+        float x = movementInput.x;
+        float z = movementInput.y;
  
         // calculate a direction relative to where we're facing
         Vector3 dir = (transform.forward * z + transform.right * x) * moveSpeed;

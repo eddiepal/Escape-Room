@@ -57,7 +57,7 @@ public class SelectionManager : MonoBehaviourPun
             _selectionResponse.OnSelect(_selection);
         }
 
-        _selectionResponse.DropObject(_selection);
+        _selectionResponse.DropObject();
     }
  
     public void CreateRay()

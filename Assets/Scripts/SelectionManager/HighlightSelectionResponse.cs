@@ -1,4 +1,4 @@
-
+using System;
 using Photon.Pun;
 using UnityEngine;
 
@@ -11,11 +11,17 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     [SerializeField] private bool holdingObject = false;
 
     public Transform theSelection;
-    
+    private PlayerInputActions inputAction;
+
+    private void Awake()
+    {
+        inputAction = new PlayerInputActions();
+        //inputAction.PlayerControls.PickupObject.performed += ctx => null;
+    }
+
     [PunRPC]
     public void OnSelect(Transform selection)
     {
-
         theSelection = selection;
         if (holdingObject == false)
         {
@@ -27,14 +33,13 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
             }
 
             photonView.RPC("updateHeldObject", RpcTarget.All, selection.GetComponent<PhotonView>().ViewID);
-            
-            if (Input.GetMouseButton(0))
+
+            if (PlayerInput.playerInput.controls.PlayerControls.PickupObject.triggered)
             {
                 holdingObject = true;
                 selectionRenderer.material = defaultMaterial;
 
                 photonView.RPC("PickupObject", RpcTarget.All, selection.GetComponent<PhotonView>().ViewID);
-
             }
         }
     }
@@ -55,12 +60,13 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         }
     }
 
-    public void DropObject(Transform selection)
+    public void DropObject()
     {
-        if (holdingObject && Input.GetMouseButton(1))
+        if (holdingObject && PlayerInput.playerInput.controls.PlayerControls.DropObject.triggered)
         {
             holdingObject = false;
-            photonView.RPC("UpdateObjectComponents", RpcTarget.All, objectHolding.GetComponent<PhotonView>().ViewID, objectHolding.transform.position, objectHolding.transform.rotation);
+            photonView.RPC("UpdateObjectComponents", RpcTarget.All, objectHolding.GetComponent<PhotonView>().ViewID,
+                objectHolding.transform.position, objectHolding.transform.rotation);
         }
     }
 
@@ -86,7 +92,7 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         tempHold.parent = childGameObject.transform;
         tempHold.GetComponent<Rigidbody>().useGravity = false;
         tempHold.GetComponent<MeshCollider>().enabled = false;
-        
+
         if (tempHold.gameObject.name == "LetterBox M")
             GameManager.instance.LetterPlaced[0] = false;
         if (tempHold.gameObject.name == "LetterBox A")
@@ -97,9 +103,15 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
             GameManager.instance.LetterPlaced[3] = false;
         if (tempHold.gameObject.name == "LetterBox S")
             GameManager.instance.LetterPlaced[4] = false;
- 
     }
-    
-    
 
+    private void OnEnable()
+    {
+        inputAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputAction.Disable();
+    }
 }

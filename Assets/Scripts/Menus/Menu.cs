@@ -50,7 +50,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     private void Update()
     {
-        if (Input.anyKeyDown && !PhotonNetwork.IsConnected)
+        if (PlayerInput.playerInput.controls.PlayerControls.ConnectToServer.triggered && !PhotonNetwork.IsConnected)
         {
             ConnectToMasterServer();
         }
