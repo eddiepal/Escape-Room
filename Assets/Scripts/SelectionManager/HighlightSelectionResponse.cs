@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Photon.Pun;
 using UnityEngine;
 
@@ -11,13 +12,7 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     [SerializeField] private bool holdingObject = false;
 
     public Transform theSelection;
-    private PlayerInputActions inputAction;
-
-    private void Awake()
-    {
-        inputAction = new PlayerInputActions();
-        //inputAction.PlayerControls.PickupObject.performed += ctx => null;
-    }
+    
 
     [PunRPC]
     public void OnSelect(Transform selection)
@@ -81,37 +76,21 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         tempHold.transform.rotation = rotation;
     }
 
+    IEnumerator WaitForNextFrame()
+    {
+        yield return 0;
+    }
+
     [PunRPC]
     public void PickupObject(int viewId)
     {
         Transform tempHold = PhotonView.Find(viewId).transform;
         GameObject childGameObject = gameObject.transform.GetChild(0).gameObject;
-
+        
         tempHold.position = childGameObject.transform.position;
         tempHold.rotation = childGameObject.transform.rotation;
         tempHold.parent = childGameObject.transform;
         tempHold.GetComponent<Rigidbody>().useGravity = false;
-        tempHold.GetComponent<MeshCollider>().enabled = false;
-
-        if (tempHold.gameObject.name == "LetterBox M")
-            GameManager.instance.LetterPlaced[0] = false;
-        if (tempHold.gameObject.name == "LetterBox A")
-            GameManager.instance.LetterPlaced[1] = false;
-        if (tempHold.gameObject.name == "LetterBox T")
-            GameManager.instance.LetterPlaced[2] = false;
-        if (tempHold.gameObject.name == "LetterBox H")
-            GameManager.instance.LetterPlaced[3] = false;
-        if (tempHold.gameObject.name == "LetterBox S")
-            GameManager.instance.LetterPlaced[4] = false;
-    }
-
-    private void OnEnable()
-    {
-        inputAction.Enable();
-    }
-
-    private void OnDisable()
-    {
-        inputAction.Disable();
+       // tempHold.GetComponent<MeshCollider>().enabled = false;
     }
 }

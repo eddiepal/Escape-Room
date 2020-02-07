@@ -32,7 +32,6 @@ public class GameChat : MonoBehaviourPun
     {
         if (!chatIsOpen)
         {
-            Cursor.lockState = CursorLockMode.None;
             PlayerInput.playerInput.DisablePlayerControls();
             panel.SetActive(true);
             inputField.SetActive(true);
@@ -41,7 +40,6 @@ public class GameChat : MonoBehaviourPun
         }
         else if (chatIsOpen && !isTyping)
         {
-            Cursor.lockState = CursorLockMode.Locked;
             PlayerInput.playerInput.EnablePlayerControls();
             panel.SetActive(false);
             chatIsOpen = false;
