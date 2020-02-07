@@ -263,6 +263,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SendChatMessage",
+                    "type": "Button",
+                    "id": "7771d4d7-003c-4b27-acfd-cb53ce3f582a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -307,6 +315,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenChatPanel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7657704a-9b5a-4801-bbb3-55fff4bfbade",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SendChatMessage",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

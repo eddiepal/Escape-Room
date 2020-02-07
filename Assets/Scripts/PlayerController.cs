@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviourPun
@@ -35,14 +36,26 @@ public class PlayerController : MonoBehaviourPun
 
     private Vector2 movementInput;
 
+    [SerializeField]
+    TextMeshPro overheadPlayerName;
+
     private void Awake()
     {
+        overheadPlayerName.text = PhotonNetwork.LocalPlayer.NickName;
         inputAction = new PlayerInputActions();
         PlayerInput.playerInput.controls.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         PlayerInput.playerInput.controls.PlayerControls.Jump.performed += ctx => TryJump();
-
+        
     }
 
+    private void LateUpdate()
+    {
+        if (Camera.main.transform != null)
+        {
+            overheadPlayerName.transform.LookAt(Camera.main.transform);
+            overheadPlayerName.transform.Rotate(0,180,0);
+        }
+    }
 
     void Update()
     {

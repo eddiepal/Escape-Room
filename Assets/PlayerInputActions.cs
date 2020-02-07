@@ -276,6 +276,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SendChatMessage"",
+                    ""type"": ""Button"",
+                    ""id"": ""7771d4d7-003c-4b27-acfd-cb53ce3f582a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -322,6 +330,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""OpenChatPanel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7657704a-9b5a-4801-bbb3-55fff4bfbade"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SendChatMessage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -352,6 +371,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PauseMenu = asset.FindActionMap("Pause Menu", throwIfNotFound: true);
         m_PauseMenu_PauseGame = m_PauseMenu.FindAction("Pause Game", throwIfNotFound: true);
         m_PauseMenu_OpenChatPanel = m_PauseMenu.FindAction("OpenChatPanel", throwIfNotFound: true);
+        m_PauseMenu_SendChatMessage = m_PauseMenu.FindAction("SendChatMessage", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -476,12 +496,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private IPauseMenuActions m_PauseMenuActionsCallbackInterface;
     private readonly InputAction m_PauseMenu_PauseGame;
     private readonly InputAction m_PauseMenu_OpenChatPanel;
+    private readonly InputAction m_PauseMenu_SendChatMessage;
     public struct PauseMenuActions
     {
         private @PlayerInputActions m_Wrapper;
         public PauseMenuActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @PauseGame => m_Wrapper.m_PauseMenu_PauseGame;
         public InputAction @OpenChatPanel => m_Wrapper.m_PauseMenu_OpenChatPanel;
+        public InputAction @SendChatMessage => m_Wrapper.m_PauseMenu_SendChatMessage;
         public InputActionMap Get() { return m_Wrapper.m_PauseMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -497,6 +519,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @OpenChatPanel.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnOpenChatPanel;
                 @OpenChatPanel.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnOpenChatPanel;
                 @OpenChatPanel.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnOpenChatPanel;
+                @SendChatMessage.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnSendChatMessage;
+                @SendChatMessage.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnSendChatMessage;
+                @SendChatMessage.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnSendChatMessage;
             }
             m_Wrapper.m_PauseMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -507,6 +532,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @OpenChatPanel.started += instance.OnOpenChatPanel;
                 @OpenChatPanel.performed += instance.OnOpenChatPanel;
                 @OpenChatPanel.canceled += instance.OnOpenChatPanel;
+                @SendChatMessage.started += instance.OnSendChatMessage;
+                @SendChatMessage.performed += instance.OnSendChatMessage;
+                @SendChatMessage.canceled += instance.OnSendChatMessage;
             }
         }
     }
@@ -533,5 +561,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnPauseGame(InputAction.CallbackContext context);
         void OnOpenChatPanel(InputAction.CallbackContext context);
+        void OnSendChatMessage(InputAction.CallbackContext context);
     }
 }
