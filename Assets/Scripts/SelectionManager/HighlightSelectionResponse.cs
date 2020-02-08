@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Photon.Pun;
+using TMPro;
 using UnityEngine;
 
 internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
@@ -9,9 +10,11 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     [SerializeField] private Material highlightMaterial;
 
     public Transform objectHolding;
-    [SerializeField] private bool holdingObject = false;
+    private bool holdingObject = false;
 
     public Transform theSelection;
+    [Range(0, 255)]
+    [SerializeField] private float pickupTransparency = 100f;
     
 
     [PunRPC]
@@ -69,6 +72,8 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     public void UpdateObjectComponents(int viewId, Vector3 position, Quaternion rotation)
     {
         Transform tempHold = PhotonView.Find(viewId).transform;
+        
+        ChangePickupMaterial(tempHold, 255f);
         tempHold.parent = null;
         tempHold.GetComponent<Rigidbody>().useGravity = true;
         tempHold.GetComponent<MeshCollider>().isTrigger = false;
@@ -82,10 +87,19 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         Transform tempHold = PhotonView.Find(viewId).transform;
         GameObject childGameObject = gameObject.transform.GetChild(0).gameObject;
 
+        ChangePickupMaterial(tempHold, pickupTransparency);
         tempHold.position = childGameObject.transform.position;
         tempHold.rotation = childGameObject.transform.rotation;
         tempHold.parent = childGameObject.transform;
         tempHold.GetComponent<Rigidbody>().useGravity = false;
         tempHold.GetComponent<MeshCollider>().isTrigger = true;
+    }
+
+    public void ChangePickupMaterial(Transform tempHold, float aValue)
+    {
+        Color pickupColor = tempHold.GetComponent<MeshRenderer>().material.color;
+        Color letterColor = tempHold.GetChild(0).GetComponent<TextMeshPro>().color;
+        tempHold.GetComponent<MeshRenderer>().material.color = new Color(pickupColor.r, pickupColor.g, pickupColor.b, aValue/255f);
+        tempHold.GetChild(0).GetComponent<TextMeshPro>().color = new Color(letterColor.r, letterColor.g, letterColor.b, aValue/255f);
     }
 }
