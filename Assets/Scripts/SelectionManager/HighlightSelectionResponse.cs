@@ -71,14 +71,9 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         Transform tempHold = PhotonView.Find(viewId).transform;
         tempHold.parent = null;
         tempHold.GetComponent<Rigidbody>().useGravity = true;
-        tempHold.GetComponent<MeshCollider>().enabled = true;
+        tempHold.GetComponent<MeshCollider>().isTrigger = false;
         tempHold.transform.position = position;
         tempHold.transform.rotation = rotation;
-    }
-
-    IEnumerator WaitForNextFrame()
-    {
-        yield return 0;
     }
 
     [PunRPC]
@@ -86,11 +81,11 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     {
         Transform tempHold = PhotonView.Find(viewId).transform;
         GameObject childGameObject = gameObject.transform.GetChild(0).gameObject;
-        
+
         tempHold.position = childGameObject.transform.position;
         tempHold.rotation = childGameObject.transform.rotation;
         tempHold.parent = childGameObject.transform;
         tempHold.GetComponent<Rigidbody>().useGravity = false;
-       // tempHold.GetComponent<MeshCollider>().enabled = false;
+        tempHold.GetComponent<MeshCollider>().isTrigger = true;
     }
 }

@@ -47,5 +47,6 @@ MonoBehaviour:
   - SendMessage
   - SendChatMessage
   - OpenOtherPlayersChat
+  - SetOverheadPlayerName
   DisableAutoOpenWizard: 1
   ShowSettings: 0

@@ -22,7 +22,7 @@ public class PressurePlate : MonoBehaviourPun
         rend.sharedMaterial = material[0];
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (GameManager.instance.WordMade == false)
         {
@@ -65,13 +65,14 @@ public class PressurePlate : MonoBehaviourPun
         }
     }
 
-    private void OnCollisionExit(Collision other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("LetterBox"))
         {
             Debug.Log("In OnCollisionExit if statement");
             rend.sharedMaterial = material[0];
         }
+        
         if (gameObject.name == "PPM" && gameObject.name == "LetterBox M")
             GameManager.instance.LetterPlaced[0] = false;
         if (other.gameObject.name == "LetterBox A")

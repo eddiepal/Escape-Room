@@ -39,22 +39,19 @@ public class PlayerController : MonoBehaviourPun
     [SerializeField]
     TextMeshPro overheadPlayerName;
 
+    #region ASU
+
     private void Awake()
     {
-        overheadPlayerName.text = PhotonNetwork.LocalPlayer.NickName;
         inputAction = new PlayerInputActions();
         PlayerInput.playerInput.controls.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         PlayerInput.playerInput.controls.PlayerControls.Jump.performed += ctx => TryJump();
         
     }
 
-    private void LateUpdate()
+    private void Start()
     {
-        if (Camera.main.transform != null)
-        {
-            overheadPlayerName.transform.LookAt(Camera.main.transform);
-            overheadPlayerName.transform.Rotate(0,180,0);
-        }
+        photonView.RPC("SetOverheadPlayerName", RpcTarget.Others, PhotonNetwork.LocalPlayer.NickName);
     }
 
     void Update()
@@ -67,6 +64,23 @@ public class PlayerController : MonoBehaviourPun
         {
            
         }
+    }
+    
+    private void LateUpdate()
+    {
+        if (Camera.main != null)
+        {
+            overheadPlayerName.transform.LookAt(Camera.main.transform);
+            overheadPlayerName.transform.Rotate(0,180,0);
+        }
+    }
+
+    #endregion
+    
+    [PunRPC]
+    public void SetOverheadPlayerName(String playerName)
+    {
+        overheadPlayerName.text = playerName;
     }
 
     void Move ()
@@ -136,11 +150,6 @@ public class PlayerController : MonoBehaviourPun
         }
     }
 
-    void Die()
-    {
-        
-    }
-    
     [PunRPC]
     public void Initialize (Player player)
     {
