@@ -12,10 +12,10 @@ public class SelectionManager : MonoBehaviourPun
     [SerializeField] private string selectableTag;
 
     private ISelectionResponse _selectionResponse;
-
     private Transform _selection;
 
     private bool alreadyExecuted = false;
+    [SerializeField] float maxSelectionDistance = 3.0f;
 
     private void Awake()
     {
@@ -73,8 +73,7 @@ public class SelectionManager : MonoBehaviourPun
             if (Physics.Raycast(ray, out var hit))  
             {
                 var selection = hit.transform;
-            
-                if (selection.CompareTag(selectableTag))
+                if (selection.CompareTag(selectableTag) && hit.distance < maxSelectionDistance)
                 {
                     _selection = selection;
                 }

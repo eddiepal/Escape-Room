@@ -1106,6 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableTag: LetterBox
+  maxSelectionDistance: 10
 --- !u!114 &847488131378665422
 MonoBehaviour:
   m_ObjectHideFlags: 0
