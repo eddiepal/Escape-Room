@@ -315,7 +315,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13046
+  m_Name: pb_Mesh63866
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -820,7 +820,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13078
+  m_Name: pb_Mesh63988
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1145,7 +1145,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28708
+  m_Name: pb_Mesh63540
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1653,6 +1653,36 @@ MonoBehaviour:
   viewIdField: 13
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!1 &352401550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 352401551}
+  m_Layer: 0
+  m_Name: LetterSpawnPoint (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &352401551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352401550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1580905432}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &353204787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,7 +2657,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28880
+  m_Name: pb_Mesh63716
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2829,7 +2859,7 @@ PrefabInstance:
     - target: {fileID: 8750383675358353448, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Name
-      value: PPH
+      value: PressurePlate3
       objectReference: {fileID: 0}
     - target: {fileID: 8750383675358353449, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
@@ -2838,9 +2868,64 @@ PrefabInstance:
       objectReference: {fileID: 1199590546}
     - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
+      propertyPath: pressurePlates.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
       propertyPath: questionText
       value: 
       objectReference: {fileID: 1183782275}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[0]
+      value: 
+      objectReference: {fileID: 8750383673948698983}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[1]
+      value: 
+      objectReference: {fileID: 1515361418}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[2]
+      value: 
+      objectReference: {fileID: 2093983460}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[3]
+      value: 
+      objectReference: {fileID: 497735312}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[4]
+      value: 
+      objectReference: {fileID: 1730380294}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[5]
+      value: 
+      objectReference: {fileID: 8750383673948698983}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[6]
+      value: 
+      objectReference: {fileID: 1515361418}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[7]
+      value: 
+      objectReference: {fileID: 2093983460}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[8]
+      value: 
+      objectReference: {fileID: 497735312}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[9]
+      value: 
+      objectReference: {fileID: 1730380294}
     - target: {fileID: 8750383675358353460, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Mesh
@@ -2903,6 +2988,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e22920396e9ad42a66314a731b15e3, type: 3}
+--- !u!1 &497735312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8750383675358353448, guid: b2e22920396e9ad42a66314a731b15e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 497735311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &552659233
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,7 +3697,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28500
+  m_Name: pb_Mesh63326
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4142,7 +4233,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28758
+  m_Name: pb_Mesh63594
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5165,7 +5256,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28834
+  m_Name: pb_Mesh63670
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6981,7 +7072,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28524
+  m_Name: pb_Mesh63350
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7176,7 +7267,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29000
+  m_Name: pb_Mesh63848
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7853,7 +7944,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28896
+  m_Name: pb_Mesh63740
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8016,7 +8107,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13010
+  m_Name: pb_Mesh63436
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8179,7 +8270,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28746
+  m_Name: pb_Mesh63582
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8947,7 +9038,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28584
+  m_Name: pb_Mesh63414
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13712,7 +13803,7 @@ PrefabInstance:
     - target: {fileID: 8750383675358353448, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Name
-      value: PPA
+      value: PressurePlate1
       objectReference: {fileID: 0}
     - target: {fileID: 8750383675358353449, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
@@ -13721,9 +13812,64 @@ PrefabInstance:
       objectReference: {fileID: 1612218429}
     - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
+      propertyPath: pressurePlates.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
       propertyPath: questionText
       value: 
       objectReference: {fileID: 1183782275}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[0]
+      value: 
+      objectReference: {fileID: 8750383673948698983}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[1]
+      value: 
+      objectReference: {fileID: 1515361418}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[2]
+      value: 
+      objectReference: {fileID: 2093983460}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[3]
+      value: 
+      objectReference: {fileID: 497735312}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[4]
+      value: 
+      objectReference: {fileID: 1730380294}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[5]
+      value: 
+      objectReference: {fileID: 8750383673948698983}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[6]
+      value: 
+      objectReference: {fileID: 1515361418}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[7]
+      value: 
+      objectReference: {fileID: 2093983460}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[8]
+      value: 
+      objectReference: {fileID: 497735312}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[9]
+      value: 
+      objectReference: {fileID: 1730380294}
     - target: {fileID: 8750383675358353460, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Mesh
@@ -13786,6 +13932,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e22920396e9ad42a66314a731b15e3, type: 3}
+--- !u!1 &1515361418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8750383675358353448, guid: b2e22920396e9ad42a66314a731b15e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1515361417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1544184147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8750383675358353461, guid: b2e22920396e9ad42a66314a731b15e3,
@@ -14050,6 +14202,7 @@ Transform:
   - {fileID: 1637726}
   - {fileID: 1631668895}
   - {fileID: 831837336}
+  - {fileID: 352401551}
   m_Father: {fileID: 1403488392}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14216,7 +14369,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13030
+  m_Name: pb_Mesh63794
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14379,7 +14532,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13062
+  m_Name: pb_Mesh63956
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15119,7 +15272,7 @@ PrefabInstance:
     - target: {fileID: 8750383675358353448, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Name
-      value: PPS
+      value: PressurePlate4
       objectReference: {fileID: 0}
     - target: {fileID: 8750383675358353449, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
@@ -15128,9 +15281,64 @@ PrefabInstance:
       objectReference: {fileID: 55347927}
     - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
+      propertyPath: pressurePlates.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
       propertyPath: questionText
       value: 
       objectReference: {fileID: 1183782275}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[0]
+      value: 
+      objectReference: {fileID: 8750383673948698983}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[1]
+      value: 
+      objectReference: {fileID: 1515361418}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[2]
+      value: 
+      objectReference: {fileID: 2093983460}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[3]
+      value: 
+      objectReference: {fileID: 497735312}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[4]
+      value: 
+      objectReference: {fileID: 1730380294}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[5]
+      value: 
+      objectReference: {fileID: 8750383673948698983}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[6]
+      value: 
+      objectReference: {fileID: 1515361418}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[7]
+      value: 
+      objectReference: {fileID: 2093983460}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[8]
+      value: 
+      objectReference: {fileID: 497735312}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[9]
+      value: 
+      objectReference: {fileID: 1730380294}
     - target: {fileID: 8750383675358353460, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Mesh
@@ -15193,6 +15401,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e22920396e9ad42a66314a731b15e3, type: 3}
+--- !u!1 &1730380294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8750383675358353448, guid: b2e22920396e9ad42a66314a731b15e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1730380293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1736251330
 GameObject:
   m_ObjectHideFlags: 0
@@ -15277,7 +15491,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24990
+  m_Name: pb_Mesh-26492
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15440,7 +15654,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28908
+  m_Name: pb_Mesh63760
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16444,22 +16658,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4e050d83111ac449f170954f2ba6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theWord: Test
-  letterBoxPrefab: {fileID: 7624520972386522682, guid: 7fe6da6d3c327a74db31021b560ae43f,
-    type: 3}
+  theWord: TESTS
+  letterBoxPrefab: LetterBox
   letterSpawnPoint:
   - {fileID: 1942013869}
   - {fileID: 1637726}
   - {fileID: 1631668895}
   - {fileID: 831837336}
-  letterBoxes: []
+  - {fileID: 352401551}
 --- !u!43 &2053412165
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28568
+  m_Name: pb_Mesh63398
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16622,7 +16835,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28618
+  m_Name: pb_Mesh63450
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16789,7 +17002,7 @@ PrefabInstance:
     - target: {fileID: 8750383675358353448, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Name
-      value: PPT
+      value: PressurePlate2
       objectReference: {fileID: 0}
     - target: {fileID: 8750383675358353449, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
@@ -16798,9 +17011,64 @@ PrefabInstance:
       objectReference: {fileID: 1623108220}
     - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
+      propertyPath: pressurePlates.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
       propertyPath: questionText
       value: 
       objectReference: {fileID: 1183782275}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[0]
+      value: 
+      objectReference: {fileID: 8750383673948698983}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[1]
+      value: 
+      objectReference: {fileID: 1515361418}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[2]
+      value: 
+      objectReference: {fileID: 2093983460}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[3]
+      value: 
+      objectReference: {fileID: 497735312}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[4]
+      value: 
+      objectReference: {fileID: 1730380294}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[5]
+      value: 
+      objectReference: {fileID: 8750383673948698983}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[6]
+      value: 
+      objectReference: {fileID: 1515361418}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[7]
+      value: 
+      objectReference: {fileID: 2093983460}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[8]
+      value: 
+      objectReference: {fileID: 497735312}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[9]
+      value: 
+      objectReference: {fileID: 1730380294}
     - target: {fileID: 8750383675358353460, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Mesh
@@ -16863,6 +17131,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e22920396e9ad42a66314a731b15e3, type: 3}
+--- !u!1 &2093983460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8750383675358353448, guid: b2e22920396e9ad42a66314a731b15e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2093983459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2134246661
 GameObject:
   m_ObjectHideFlags: 0
@@ -17158,6 +17432,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 859968811}
     m_Modifications:
+    - target: {fileID: 1802339219, guid: 7fe6da6d3c327a74db31021b560ae43f, type: 3}
+      propertyPath: viewIdField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7624520972386522680, guid: 7fe6da6d3c327a74db31021b560ae43f,
         type: 3}
       propertyPath: m_Mesh
@@ -17395,7 +17673,7 @@ PrefabInstance:
     - target: {fileID: 8750383675358353448, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Name
-      value: PPM
+      value: PressurePlate0
       objectReference: {fileID: 0}
     - target: {fileID: 8750383675358353449, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
@@ -17404,9 +17682,59 @@ PrefabInstance:
       objectReference: {fileID: 79281467}
     - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
+      propertyPath: pressurePlates.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
       propertyPath: questionText
       value: 
       objectReference: {fileID: 1183782275}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[1]
+      value: 
+      objectReference: {fileID: 1515361418}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[2]
+      value: 
+      objectReference: {fileID: 2093983460}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[3]
+      value: 
+      objectReference: {fileID: 497735312}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[4]
+      value: 
+      objectReference: {fileID: 1730380294}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[5]
+      value: 
+      objectReference: {fileID: 8750383673948698983}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[6]
+      value: 
+      objectReference: {fileID: 1515361418}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[7]
+      value: 
+      objectReference: {fileID: 2093983460}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[8]
+      value: 
+      objectReference: {fileID: 497735312}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: pressurePlates.Array.data[9]
+      value: 
+      objectReference: {fileID: 1730380294}
     - target: {fileID: 8750383675358353460, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Mesh
@@ -17469,3 +17797,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e22920396e9ad42a66314a731b15e3, type: 3}
+--- !u!1 &8750383673948698983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8750383675358353448, guid: b2e22920396e9ad42a66314a731b15e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8750383673948698982}
+  m_PrefabAsset: {fileID: 0}
