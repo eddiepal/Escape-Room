@@ -15,7 +15,14 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     public Transform theSelection;
     [Range(0, 255)]
     [SerializeField] private float pickupTransparency = 100f;
-    
+
+    [SerializeField] private TextMeshProUGUI playerInteractionText;
+
+    private void Awake()
+    {
+        playerInteractionText = GameObject.FindWithTag("playerInteractionText").GetComponent<TextMeshProUGUI>();
+    }
+
 
     [PunRPC]
     public void OnSelect(Transform selection)
@@ -30,20 +37,39 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
                 selectionRenderer.material = this.highlightMaterial;
             }
 
-            photonView.RPC("updateHeldObject", RpcTarget.All, selection.GetComponent<PhotonView>().ViewID);
+            photonView.RPC("UpdateHeldObject", RpcTarget.All, selection.GetComponent<PhotonView>().ViewID);
 
             if (PlayerInput.playerInput.controls.PlayerControls.PickupObject.triggered)
             {
                 holdingObject = true;
                 selectionRenderer.material = defaultMaterial;
 
+                photonView.RPC("PickedupObjectMessage", RpcTarget.Others, selection.GetComponent<PhotonView>().ViewID, PhotonNetwork.LocalPlayer.NickName);
                 photonView.RPC("PickupObject", RpcTarget.All, selection.GetComponent<PhotonView>().ViewID);
             }
         }
     }
+    
+   
 
     [PunRPC]
-    public void updateHeldObject(int viewId)
+    public void PickedupObjectMessage(int viewId, String playerName)
+    {
+        Transform objectPickedUp = PhotonView.Find(viewId).transform;
+        playerInteractionText.text = playerName + " picked up " + objectPickedUp.name + ".";
+        playerInteractionText.enabled = true;
+        StartCoroutine(RemovePlayerInteractionText());
+
+        IEnumerator RemovePlayerInteractionText()
+        {
+            yield return new WaitForSeconds(4f);
+
+            playerInteractionText.enabled = false;
+        }
+    }
+
+    [PunRPC]
+    public void UpdateHeldObject(int viewId)
     {
         Transform tempHold = PhotonView.Find(viewId).transform;
         objectHolding = tempHold;

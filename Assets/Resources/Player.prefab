@@ -1124,6 +1124,7 @@ MonoBehaviour:
   objectHolding: {fileID: 0}
   theSelection: {fileID: 0}
   pickupTransparency: 150
+  playerInteractionText: {fileID: 0}
 --- !u!114 &1398011629759978567
 MonoBehaviour:
   m_ObjectHideFlags: 0

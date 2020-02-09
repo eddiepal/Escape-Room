@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviourPun
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviourPun
     public PlayerController[] players;
     public Transform[] spawnPoints;
     public int alivePlayers;
+    [SerializeField] private TextMeshProUGUI playerListText;
     
     private static bool[] letterPlaced = {false,false,false,false,false};
     private static bool wordMade = false;
@@ -51,14 +53,18 @@ public class GameManager : MonoBehaviourPun
     {
         playersInGame++;
 
-        if(PhotonNetwork.IsMasterClient && playersInGame == PhotonNetwork.PlayerList.Length)
+        if (PhotonNetwork.IsMasterClient && playersInGame == PhotonNetwork.PlayerList.Length)
+        {
             photonView.RPC("SpawnPlayer", RpcTarget.All);
+            UpdatePlayerList();
+        }
     }
     
     [PunRPC]
     void SpawnPlayer ()
     {
         GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabLocation, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+        playerObj.GetComponent<MeshRenderer>().material.color = new Color(0,0,0,0);
         if (playerObj.GetComponent<PlayerController>().id == 0)
         {
             playerObj.transform.position = spawnPoints[0].transform.position;
@@ -71,6 +77,14 @@ public class GameManager : MonoBehaviourPun
         // initialize the player for all other players
         playerObj.GetComponent<PlayerController>().photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer);
     
+    }
+
+    public void UpdatePlayerList()
+    {
+        for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
+        {
+            playerListText.text += PhotonNetwork.PlayerList[i].NickName + "\n";
+        }
     }
     
     public PlayerController GetPlayer (int playerId)

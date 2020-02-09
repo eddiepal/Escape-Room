@@ -14,16 +14,19 @@ public class PressurePlate : MonoBehaviourPun
     
     public Material[] material;
     private Renderer rend;
+    private List<GameObject> letterBoxesList;
 
     private void Start()
     {
         rend = GetComponent<MeshRenderer>();
         rend.enabled = true;
-        rend.sharedMaterial = material[0];
+        rend.sharedMaterial = material[0]; 
+        letterBoxesList = GetComponent<WordCreator>().LetterBoxes;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+       
         if (GameManager.instance.WordMade == false)
         {
             if (other.gameObject.CompareTag("LetterBox"))
@@ -32,27 +35,27 @@ public class PressurePlate : MonoBehaviourPun
                 rend.sharedMaterial = material[1];
             }
             
-            if (gameObject.name == "PPM" && other.gameObject.name == "LetterBox M")
+            if (gameObject.name == "PPM" && other.gameObject.name == letterBoxesList[0].name)
             {
                 GameManager.instance.LetterPlaced[0] = true;
             }
 
-            if (gameObject.name == "PPA" && other.gameObject.name == "LetterBox A")
+            if (gameObject.name == "PPA" && other.gameObject.name == letterBoxesList[1].name)
             {
                 GameManager.instance.LetterPlaced[1] = true;
             }
 
-            if (gameObject.name == "PPT" && other.gameObject.name == "LetterBox T")
+            if (gameObject.name == "PPT" && other.gameObject.name == letterBoxesList[2].name)
             {
                 GameManager.instance.LetterPlaced[2] = true;
             }
 
-            if (gameObject.name == "PPH" && other.gameObject.name == "LetterBox H")
+            if (gameObject.name == "PPH" && other.gameObject.name == letterBoxesList[3].name)
             {
                 GameManager.instance.LetterPlaced[3] = true;
             }
 
-            if (gameObject.name == "PPS" && other.gameObject.name == "LetterBox S")
+            if (gameObject.name == "PPS" && other.gameObject.name == letterBoxesList[4].name)
             {
                 GameManager.instance.LetterPlaced[4] = true;
             }
@@ -69,7 +72,6 @@ public class PressurePlate : MonoBehaviourPun
     {
         if (other.gameObject.CompareTag("LetterBox"))
         {
-            Debug.Log("In OnCollisionExit if statement");
             rend.sharedMaterial = material[0];
         }
         
