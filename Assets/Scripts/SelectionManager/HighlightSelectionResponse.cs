@@ -6,17 +6,18 @@ using UnityEngine;
 
 internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
 {
+    [Tooltip("Text to notify other players what interaction this player has done")]
+    [SerializeField] private TextMeshProUGUI playerInteractionText;
+    
+    [Header("Object Details")]
+    [SerializeField] Transform objectHolding;
+    [SerializeField] bool holdingObject = false;
+    [SerializeField] Transform theSelection;
+
+    [Header("Materials")]
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material highlightMaterial;
-
-    public Transform objectHolding;
-    private bool holdingObject = false;
-
-    public Transform theSelection;
-    [Range(0, 255)]
-    [SerializeField] private float pickupTransparency = 100f;
-
-    [SerializeField] private TextMeshProUGUI playerInteractionText;
+    [SerializeField] private Material pickedupMaterial;
 
     private void Awake()
     {
@@ -50,8 +51,15 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         }
     }
     
-   
-
+    public void OnDeselect(Transform selection)
+    {
+        if (!holdingObject)
+        {
+            var selectionRenderer = selection.GetComponent<Renderer>();
+            selectionRenderer.material = defaultMaterial;
+        }
+    }
+    
     [PunRPC]
     public void PickedupObjectMessage(int viewId, String playerName)
     {
@@ -74,32 +82,26 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
         Transform tempHold = PhotonView.Find(viewId).transform;
         objectHolding = tempHold;
     }
-
-    public void OnDeselect(Transform selection)
-    {
-        if (!holdingObject)
-        {
-            var selectionRenderer = selection.GetComponent<Renderer>();
-            selectionRenderer.material = defaultMaterial;
-        }
-    }
-
-    public void DropObject()
+    
+    public void OnDropObject()
     {
         if (holdingObject && PlayerInput.playerInput.controls.PlayerControls.DropObject.triggered)
         {
             holdingObject = false;
-            photonView.RPC("UpdateObjectComponents", RpcTarget.All, objectHolding.GetComponent<PhotonView>().ViewID,
+            photonView.RPC("DropObject", RpcTarget.All, objectHolding.GetComponent<PhotonView>().ViewID,
                 objectHolding.transform.position, objectHolding.transform.rotation);
         }
     }
 
     [PunRPC]
-    public void UpdateObjectComponents(int viewId, Vector3 position, Quaternion rotation)
+    public void DropObject(int viewId, Vector3 position, Quaternion rotation)
     {
         Transform tempHold = PhotonView.Find(viewId).transform;
         
-        ChangePickupMaterial(tempHold, 255f);
+        tempHold.GetComponent<MeshRenderer>().material = defaultMaterial;
+        Color currentColor = tempHold.GetChild(0).GetComponent<TextMeshPro>().color;
+        tempHold.GetChild(0).GetComponent<TextMeshPro>().color = new Color(currentColor.r, currentColor.g, currentColor.b, a: 1.0f);
+        
         tempHold.parent = null;
         tempHold.GetComponent<Rigidbody>().useGravity = true;
         tempHold.GetComponent<MeshCollider>().isTrigger = false;
@@ -112,20 +114,15 @@ internal class HighlightSelectionResponse : MonoBehaviourPun, ISelectionResponse
     {
         Transform tempHold = PhotonView.Find(viewId).transform;
         GameObject childGameObject = gameObject.transform.GetChild(0).gameObject;
+        Color currentColor = tempHold.GetChild(0).GetComponent<TextMeshPro>().color;
+        tempHold.GetChild(0).GetComponent<TextMeshPro>().color = new Color(currentColor.r, currentColor.g, currentColor.b, a: 150/255f);
 
-        ChangePickupMaterial(tempHold, pickupTransparency);
+
+        tempHold.GetComponent<MeshRenderer>().material = pickedupMaterial;
         tempHold.position = childGameObject.transform.position;
         tempHold.rotation = childGameObject.transform.rotation;
         tempHold.parent = childGameObject.transform;
         tempHold.GetComponent<Rigidbody>().useGravity = false;
         tempHold.GetComponent<MeshCollider>().isTrigger = true;
-    }
-
-    public void ChangePickupMaterial(Transform tempHold, float aValue)
-    {
-        Color pickupColor = tempHold.GetComponent<MeshRenderer>().material.color;
-        Color letterColor = tempHold.GetChild(0).GetComponent<TextMeshPro>().color;
-        tempHold.GetComponent<MeshRenderer>().material.color = new Color(pickupColor.r, pickupColor.g, pickupColor.b, aValue/255f);
-        tempHold.GetChild(0).GetComponent<TextMeshPro>().color = new Color(letterColor.r, letterColor.g, letterColor.b, aValue/255f);
     }
 }

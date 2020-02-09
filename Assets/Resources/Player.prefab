@@ -1119,12 +1119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075184bde5a342f298528eaa4b7ad5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 0}
-  highlightMaterial: {fileID: 2100000, guid: 2e9d9f8247ff36d448fe52b8356aff59, type: 2}
-  objectHolding: {fileID: 0}
-  theSelection: {fileID: 0}
-  pickupTransparency: 150
   playerInteractionText: {fileID: 0}
+  objectHolding: {fileID: 0}
+  holdingObject: 0
+  theSelection: {fileID: 0}
+  defaultMaterial: {fileID: 2100000, guid: 29775f22cfb41394a8c5b87e829c9616, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: 2e9d9f8247ff36d448fe52b8356aff59, type: 2}
+  pickedupMaterial: {fileID: 2100000, guid: 7c0ab77659bb5a24681be3d55cb5ec4b, type: 2}
 --- !u!114 &1398011629759978567
 MonoBehaviour:
   m_ObjectHideFlags: 0

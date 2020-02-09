@@ -31,7 +31,7 @@ public class PickupObjectSelectionResponse : MonoBehaviour, ISelectionResponse
         throw new System.NotImplementedException();
     }
 
-    public void DropObject()
+    public void OnDropObject()
     {
         throw new System.NotImplementedException();
     }
