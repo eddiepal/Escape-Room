@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using System.Collections.Generic;
+using Photon.Pun;
 using Photon.Realtime;
 using System.Linq;
 using TMPro;
@@ -13,7 +14,7 @@ public class GameManager : MonoBehaviourPun
     public int alivePlayers;
     [SerializeField] private TextMeshProUGUI playerListText;
     
-    private static bool[] letterPlaced = {false,false,false,false,false};
+    private static List<bool> letterPlaced = new List<bool>();
     private static bool wordMade = false;
 
     [field: SerializeField] public bool UsingController { get; }
@@ -24,12 +25,12 @@ public class GameManager : MonoBehaviourPun
         set => wordMade = value;
     }
 
-    public bool[] LetterPlaced
+    public List<bool> LetterPlaced
     {
         get => letterPlaced;
         set => letterPlaced = value;
     }
-    
+
     private int playersInGame;
 
 // instance
