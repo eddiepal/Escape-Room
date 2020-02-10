@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 {
+    public GameObject firstSelection;
+
     [Header("Screens")] 
     public GameObject createRoomScreen;
     public GameObject lobbyScreen;
@@ -69,9 +71,14 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
             UpdateLobbyBrowserUI();
             Debug.Log("in if statement");
         }
+        
+        if(screen.transform.GetChild(0).GetChild(0).GetComponent<Button>() != null)
+            screen.transform.GetChild(0).GetChild(0).GetComponent<Button>().Select();
 
+        if (screen.transform.GetChild(0).GetChild(0).GetComponent<TMP_InputField>() != null)
+            screen.transform.GetChild(0).GetChild(0).GetComponent<TMP_InputField>().Select();
     }
-
+    
     public void OnPlayerNameValueChanged(TMP_InputField playerNameInput)
     {
         PhotonNetwork.NickName = playerNameInput.text;
@@ -83,6 +90,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         PhotonNetwork.JoinLobby();
         serverConnectScreen.SetActive(false);
         mainMenuScreen.SetActive(true);
+        mainMenuScreen.transform.GetChild(0).GetChild(0).GetComponent<Button>().Select();
     }
 
     public void ConnectToMasterServer()
@@ -151,7 +159,8 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public void OnLeaveLobbyButton()
     {
         PhotonNetwork.LeaveRoom();
-        SetScreen(serverConnectScreen);
+        SetScreen(mainMenuScreen);
+        mainMenuScreen.transform.GetChild(0).GetChild(0).GetComponent<Button>().Select();
     }
 
     void UpdateLobbyBrowserUI()

@@ -37,7 +37,7 @@ public class WordCreator : MonoBehaviourPun
         {
             GameManager.instance.LetterPlaced.Add(false);
             
-            if (!PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient)
             {
                 GameObject letterBox = PhotonNetwork.Instantiate(letterBoxPrefab, letterSpawnPoint[i].transform.position,
                     letterSpawnPoint[i].transform.rotation);

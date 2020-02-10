@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviourPun
     {
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {
-            playerListText.text += PhotonNetwork.PlayerList[i].NickName + "\n";
+            playerListText.text += "\n" + PhotonNetwork.PlayerList[i].NickName;
         }
     }
     

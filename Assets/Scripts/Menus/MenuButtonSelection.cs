@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MenuButtonSelection : MonoBehaviour
 {
     public GameObject firstSelection;
+
     void Start()
     {
         if(firstSelection.GetComponent<Button>())
