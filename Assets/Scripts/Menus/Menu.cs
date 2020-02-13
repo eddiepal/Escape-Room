@@ -5,6 +5,7 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 {
@@ -41,7 +42,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
 
         if (PhotonNetwork.InRoom)
         {
@@ -54,6 +55,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     {
         if (PlayerInput.playerInput.controls.PlayerControls.ConnectToServer.triggered && !PhotonNetwork.IsConnected)
         {
+            EventSystem.current.SetSelectedGameObject(null);
             ConnectToMasterServer();
         }
     }
@@ -77,6 +79,19 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         if (screen.transform.GetChild(0).GetChild(0).GetComponent<TMP_InputField>() != null)
             screen.transform.GetChild(0).GetChild(0).GetComponent<TMP_InputField>().Select();
+    }
+    
+    IEnumerator MoveTextEnd_NextFrame(TMP_InputField inputField)
+    {
+        yield return 0; // Skip the first frame in which this is called.
+        inputField.DeactivateInputField();
+        //inputField.MoveTextEnd(false); // Do this during the next frame.
+    }
+
+    
+    public void OnSelect(TMP_InputField inputField)
+    {
+        StartCoroutine(MoveTextEnd_NextFrame(inputField));
     }
     
     public void OnPlayerNameValueChanged(TMP_InputField playerNameInput)

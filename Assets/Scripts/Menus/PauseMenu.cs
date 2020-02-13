@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     public static bool gamePaused = false;
 
-    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject pauseMenuPanel;
     [SerializeField] private GameObject hudPanel;
     [SerializeField] private GameObject instructionsPanel;
+    [SerializeField] private GameObject leaveConfirmationPanel;
 
     private PlayerInputActions inputAction;
     private Vector2 movementInput;
+    private Button firstButton;
 
     private void Awake()
     {
@@ -28,16 +32,10 @@ public class PauseMenu : MonoBehaviour
         {
             if (gamePaused)
             {
-                PlayerInput.playerInput.EnablePlayerControls();
-                Cursor.lockState = CursorLockMode.Locked;
                 Resume();
-               
-                
             }
             else
             {
-                PlayerInput.playerInput.DisablePlayerControls();
-                Cursor.lockState = CursorLockMode.None;
                 Pause();
             }
         }
@@ -45,33 +43,64 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         PlayerInput.playerInput.EnablePlayerControls();
-        pauseMenuUI.SetActive(false);
+        pauseMenuPanel.SetActive(false);
         hudPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
         gamePaused = false;
     }
 
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        PlayerInput.playerInput.DisablePlayerControls();
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;;
         hudPanel.SetActive(false);
+        pauseMenuPanel.SetActive(true);
+        SelectButton(pauseMenuPanel);
         gamePaused = true;
     }
 
     public void OpenOptions()
     {
-        pauseMenuUI.SetActive(false);
+        pauseMenuPanel.SetActive(false);
         instructionsPanel.SetActive(true);
+        SelectButton(instructionsPanel);
     }
 
     public void GoBack()
     {
         instructionsPanel.SetActive(false);
-        pauseMenuUI.SetActive(true);
+        pauseMenuPanel.SetActive(true);
+        SelectButton(pauseMenuPanel);
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        pauseMenuPanel.SetActive(false);
+        leaveConfirmationPanel.SetActive(true);
+        SelectButton(leaveConfirmationPanel);
+    }
+
+    public void SelectButton(GameObject screen)
+    {
+        firstButton = screen.transform.GetChild(0).GetChild(0).GetComponent<Button>();
+        firstButton.Select();
+    }
+
+    public void LeaveConfirmed(bool confirmed)
+    {
+        if (confirmed)
+        {
+            Application.Quit();
+        }
+        else
+        {
+            leaveConfirmationPanel.SetActive(false);
+            pauseMenuPanel.SetActive(true);
+            SelectButton(pauseMenuPanel);
+        }
     }
 }

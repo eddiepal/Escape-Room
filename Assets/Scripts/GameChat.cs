@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GameChat : MonoBehaviourPun
 {
@@ -36,10 +37,12 @@ public class GameChat : MonoBehaviourPun
             panel.SetActive(true);
             inputField.SetActive(true);
             sendMessageButton.SetActive(true);
+            panel.transform.GetChild(0).GetComponent<TMP_InputField>().Select();
             chatIsOpen = true;
         }
         else if (chatIsOpen && !isTyping)
         {
+            EventSystem.current.SetSelectedGameObject(null);
             PlayerInput.playerInput.EnablePlayerControls();
             panel.SetActive(false);
             chatIsOpen = false;
@@ -72,10 +75,10 @@ public class GameChat : MonoBehaviourPun
     [PunRPC]
     public void SendChatMessage(String message, String localPlayerNickName, PhotonMessageInfo info)
     {
-        if (PhotonNetwork.LocalPlayer.ActorNumber == info.Sender.ActorNumber)
+/*        if (PhotonNetwork.LocalPlayer.ActorNumber == info.Sender.ActorNumber)
         {
             localPlayerNickName += " (Me)";
-        }
+        }*/
         
         chatText.text += "\n";
         chatText.text += localPlayerNickName + ": " + message;

@@ -31,6 +31,7 @@ public class CameraController : MonoBehaviour
     {
         // lock the cursor to the middle of the screen
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     
     void LateUpdate ()

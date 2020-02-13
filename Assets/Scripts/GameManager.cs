@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviourPun
         if (PhotonNetwork.IsMasterClient && playersInGame == PhotonNetwork.PlayerList.Length)
         {
             photonView.RPC("SpawnPlayer", RpcTarget.All);
-            UpdatePlayerList();
+            photonView.RPC("UpdatePlayerList", RpcTarget.All);
         }
     }
     
@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviourPun
     
     }
 
+    [PunRPC]
     public void UpdatePlayerList()
     {
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
