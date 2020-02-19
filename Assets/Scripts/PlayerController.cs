@@ -85,9 +85,9 @@ public class PlayerController : MonoBehaviourPun
 
     void Move ()
     {
-        // get the input axis
-       // float x = Input.GetAxis("Horizontal");
-        //float z = Input.GetAxis("Vertical");
+        if(PauseMenu.gamePaused)
+            return;
+        
         float x = movementInput.x;
         float z = movementInput.y;
  

@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour
     [Header("Look Sensitivity")]
     public float sensX; 
     public float sensY;
+    public float gamepadSensX; 
+    public float gamepadSensY;
  
     [Header("Clamping")]
     public float minY;
@@ -36,8 +38,11 @@ public class CameraController : MonoBehaviour
     
     void LateUpdate ()
     {
-        rotX += cameraInput.x * sensX;
-        rotY += cameraInput.y * sensY;
+        if (PauseMenu.gamePaused)
+            return;
+        
+        rotX += cameraInput.x * gamepadSensX;
+        rotY += cameraInput.y * gamepadSensY;
 
         if (!PauseMenu.gamePaused && !GameChat.chatIsOpen)
         {

@@ -595,6 +595,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensX: 5
   sensY: 5
+  gamepadSensX: 2
+  gamepadSensY: 2
   minY: -90
   maxY: 90
 --- !u!1 &3360533589536737433

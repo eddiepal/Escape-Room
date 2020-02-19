@@ -17,8 +17,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        //DontDestroyOnLoad(gameObject);
+/*        GameObject oldGameObject = GameObject.Find(gameObject.name);
+
+        if (oldGameObject && oldGameObject != gameObject)
+        {
+            Destroy(oldGameObject);
+        }*/
         instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void CreateRoom (string roomName)

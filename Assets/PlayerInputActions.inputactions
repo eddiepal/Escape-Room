@@ -44,14 +44,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "ConnectToServer",
-                    "type": "Button",
-                    "id": "6af9a8a4-41e9-4f05-9bd1-132e539eacb8",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -116,7 +108,7 @@
                     "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Xbox Controller",
+                    "groups": "Gamepad",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -127,7 +119,7 @@
                     "path": "<XInputController>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Xbox Controller",
+                    "groups": "Gamepad",
                     "action": "MoveCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -149,7 +141,7 @@
                     "path": "<XInputController>/buttonSouth",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "Xbox Controller",
+                    "groups": "Gamepad",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -171,7 +163,7 @@
                     "path": "<XInputController>/leftTrigger",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "Xbox Controller",
+                    "groups": "Gamepad",
                     "action": "Pickup Object",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -193,52 +185,8 @@
                     "path": "<XInputController>/rightTrigger",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "Xbox Controller",
+                    "groups": "Gamepad",
                     "action": "Drop Object",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "472a2c1f-078e-40bf-873c-e6decaf43699",
-                    "path": "<Keyboard>/anyKey",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ConnectToServer",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "77769907-4d29-4aa3-a4f8-56ca28d9133f",
-                    "path": "<XInputController>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Xbox Controller",
-                    "action": "ConnectToServer",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c18611fe-84b1-4ef2-ae6d-cd2ca699991c",
-                    "path": "<XInputController>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ConnectToServer",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1f02fdfc-c04a-428c-9926-5cf92d4ab941",
-                    "path": "<Mouse>/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ConnectToServer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -271,6 +219,30 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "CloseKeyboard",
+                    "type": "Button",
+                    "id": "ecfe4b23-9090-4def-8208-8aff6c2f33b9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "OpenKeyboard",
+                    "type": "Button",
+                    "id": "9d4adece-0149-44d6-bd5a-7a880613e307",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ConnectToServer",
+                    "type": "Button",
+                    "id": "ad7cda6a-e452-406d-8c2f-a9da6969aa20",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -291,7 +263,7 @@
                     "path": "<XInputController>/start",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "Xbox Controller",
+                    "groups": "Gamepad",
                     "action": "Pause Game",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -302,7 +274,7 @@
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Xbox Controller",
+                    "groups": "Gamepad",
                     "action": "Pause Game",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -320,6 +292,17 @@
                 },
                 {
                     "name": "",
+                    "id": "cde1147f-6ed1-4003-8c04-00e30e5fbb72",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "OpenChatPanel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7657704a-9b5a-4801-bbb3-55fff4bfbade",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
@@ -328,15 +311,141 @@
                     "action": "SendChatMessage",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6bcf05e9-dbbe-4d3d-b10c-18b1108d635c",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "CloseKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95f3a41a-59a0-479d-920b-747cb6383a73",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8da20c41-7382-4201-86ee-eb09b499b858",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "CloseKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "44530fab-e064-4f18-8086-7043dba24bdf",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ae20dd4-5e85-429d-a9fb-e611625190be",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "OpenKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c593350a-60d7-4eea-a28a-caae3af2fa2d",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78fa2ea1-80f2-4ed8-ba32-463b0047af94",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "648fe8dd-d6be-41b2-b122-110d4aeb0086",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ConnectToServer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37f16dbc-5fe6-444a-9c07-6b9824353a51",
+                    "path": "<XInputController>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ConnectToServer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96ddef1e-12bb-4923-a2f7-0140bf3c2ed7",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ConnectToServer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f443419-0629-4d9d-b9e4-383da9747011",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ConnectToServer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
     ],
     "controlSchemes": [
         {
-            "name": "Xbox Controller",
-            "bindingGroup": "Xbox Controller",
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
             "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
                 {
                     "devicePath": "<XInputController>",
                     "isOptional": false,

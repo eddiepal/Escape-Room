@@ -31,7 +31,7 @@ public class GameChat : MonoBehaviourPun
     [PunRPC]
     public void OpenChat()
     {
-        if (!chatIsOpen)
+        if (!chatIsOpen && !PauseMenu.gamePaused)
         {
             PlayerInput.playerInput.DisablePlayerControls();
             panel.SetActive(true);
@@ -40,7 +40,7 @@ public class GameChat : MonoBehaviourPun
             panel.transform.GetChild(0).GetComponent<TMP_InputField>().Select();
             chatIsOpen = true;
         }
-        else if (chatIsOpen && !isTyping)
+        else if (chatIsOpen && !panel.transform.GetChild(0).GetComponent<TMP_InputField>().isFocused)
         {
             EventSystem.current.SetSelectedGameObject(null);
             PlayerInput.playerInput.EnablePlayerControls();

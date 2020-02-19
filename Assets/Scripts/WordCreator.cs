@@ -57,19 +57,18 @@ public class WordCreator : MonoBehaviourPun
             _letterBoxes[i].transform.GetChild(0).GetComponent<TextMeshPro>().text = theWord[i].ToString();
         }
         
-        testme();
+        SetUpLetterBox();
     }
     
     [PunRPC]
     public void AddToList(int viewId)
     {
-        Debug.Log(_letterBoxes.Count + ": on" + PhotonNetwork.LocalPlayer.NickName + "s game.");
         GameObject tempHold = PhotonView.Find(viewId).gameObject;
         _letterBoxes.Add(tempHold);
-        testme();
+        SetUpLetterBox();
     }
 
-    public void testme()
+    public void SetUpLetterBox()
     {
         for (int i = 0; i < _letterBoxes.Count; i++)
         {

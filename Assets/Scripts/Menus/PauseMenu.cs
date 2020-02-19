@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviourPun
 {
     // Start is called before the first frame update
     public static bool gamePaused = false;
@@ -14,18 +16,10 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject hudPanel;
     [SerializeField] private GameObject instructionsPanel;
     [SerializeField] private GameObject leaveConfirmationPanel;
-
-    private PlayerInputActions inputAction;
+    
     private Vector2 movementInput;
     private Button firstButton;
-
-    private void Awake()
-    {
-        inputAction = new PlayerInputActions();
-        Debug.Log("In awake method of pause menu class");
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (PlayerInput.playerInput.controls.PauseMenu.PauseGame.triggered)
@@ -94,7 +88,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (confirmed)
         {
-            Application.Quit();
+            StartCoroutine(DisconnectPhoton());
         }
         else
         {
@@ -103,4 +97,14 @@ public class PauseMenu : MonoBehaviour
             SelectButton(pauseMenuPanel);
         }
     }
+
+    IEnumerator DisconnectPhoton()
+    {
+        PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+            yield return null;
+        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MainMenu");
+    }
+
+
 }

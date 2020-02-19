@@ -57,14 +57,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""ConnectToServer"",
-                    ""type"": ""Button"",
-                    ""id"": ""6af9a8a4-41e9-4f05-9bd1-132e539eacb8"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -129,7 +121,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -140,7 +132,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""MoveCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -162,7 +154,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -184,7 +176,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pickup Object"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -206,52 +198,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Drop Object"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""472a2c1f-078e-40bf-873c-e6decaf43699"",
-                    ""path"": ""<Keyboard>/anyKey"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ConnectToServer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""77769907-4d29-4aa3-a4f8-56ca28d9133f"",
-                    ""path"": ""<XInputController>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
-                    ""action"": ""ConnectToServer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c18611fe-84b1-4ef2-ae6d-cd2ca699991c"",
-                    ""path"": ""<XInputController>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ConnectToServer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1f02fdfc-c04a-428c-9926-5cf92d4ab941"",
-                    ""path"": ""<Mouse>/press"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ConnectToServer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -284,6 +232,30 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CloseKeyboard"",
+                    ""type"": ""Button"",
+                    ""id"": ""ecfe4b23-9090-4def-8208-8aff6c2f33b9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""OpenKeyboard"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d4adece-0149-44d6-bd5a-7a880613e307"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ConnectToServer"",
+                    ""type"": ""Button"",
+                    ""id"": ""ad7cda6a-e452-406d-8c2f-a9da6969aa20"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -304,7 +276,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/start"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause Game"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -315,7 +287,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox Controller"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause Game"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -333,6 +305,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""cde1147f-6ed1-4003-8c04-00e30e5fbb72"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""OpenChatPanel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7657704a-9b5a-4801-bbb3-55fff4bfbade"",
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
@@ -341,15 +324,141 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""SendChatMessage"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6bcf05e9-dbbe-4d3d-b10c-18b1108d635c"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CloseKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95f3a41a-59a0-479d-920b-747cb6383a73"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8da20c41-7382-4201-86ee-eb09b499b858"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CloseKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44530fab-e064-4f18-8086-7043dba24bdf"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ae20dd4-5e85-429d-a9fb-e611625190be"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""OpenKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c593350a-60d7-4eea-a28a-caae3af2fa2d"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78fa2ea1-80f2-4ed8-ba32-463b0047af94"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""648fe8dd-d6be-41b2-b122-110d4aeb0086"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ConnectToServer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37f16dbc-5fe6-444a-9c07-6b9824353a51"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ConnectToServer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96ddef1e-12bb-4923-a2f7-0140bf3c2ed7"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ConnectToServer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f443419-0629-4d9d-b9e4-383da9747011"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ConnectToServer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Xbox Controller"",
-            ""bindingGroup"": ""Xbox Controller"",
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
             ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
                 {
                     ""devicePath"": ""<XInputController>"",
                     ""isOptional"": false,
@@ -366,12 +475,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControls_Jump = m_PlayerControls.FindAction("Jump", throwIfNotFound: true);
         m_PlayerControls_PickupObject = m_PlayerControls.FindAction("Pickup Object", throwIfNotFound: true);
         m_PlayerControls_DropObject = m_PlayerControls.FindAction("Drop Object", throwIfNotFound: true);
-        m_PlayerControls_ConnectToServer = m_PlayerControls.FindAction("ConnectToServer", throwIfNotFound: true);
         // Pause Menu
         m_PauseMenu = asset.FindActionMap("Pause Menu", throwIfNotFound: true);
         m_PauseMenu_PauseGame = m_PauseMenu.FindAction("Pause Game", throwIfNotFound: true);
         m_PauseMenu_OpenChatPanel = m_PauseMenu.FindAction("OpenChatPanel", throwIfNotFound: true);
         m_PauseMenu_SendChatMessage = m_PauseMenu.FindAction("SendChatMessage", throwIfNotFound: true);
+        m_PauseMenu_CloseKeyboard = m_PauseMenu.FindAction("CloseKeyboard", throwIfNotFound: true);
+        m_PauseMenu_OpenKeyboard = m_PauseMenu.FindAction("OpenKeyboard", throwIfNotFound: true);
+        m_PauseMenu_ConnectToServer = m_PauseMenu.FindAction("ConnectToServer", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -426,7 +537,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_Jump;
     private readonly InputAction m_PlayerControls_PickupObject;
     private readonly InputAction m_PlayerControls_DropObject;
-    private readonly InputAction m_PlayerControls_ConnectToServer;
     public struct PlayerControlsActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -436,7 +546,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerControls_Jump;
         public InputAction @PickupObject => m_Wrapper.m_PlayerControls_PickupObject;
         public InputAction @DropObject => m_Wrapper.m_PlayerControls_DropObject;
-        public InputAction @ConnectToServer => m_Wrapper.m_PlayerControls_ConnectToServer;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -461,9 +570,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @DropObject.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnDropObject;
                 @DropObject.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnDropObject;
                 @DropObject.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnDropObject;
-                @ConnectToServer.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnConnectToServer;
-                @ConnectToServer.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnConnectToServer;
-                @ConnectToServer.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnConnectToServer;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -483,9 +589,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @DropObject.started += instance.OnDropObject;
                 @DropObject.performed += instance.OnDropObject;
                 @DropObject.canceled += instance.OnDropObject;
-                @ConnectToServer.started += instance.OnConnectToServer;
-                @ConnectToServer.performed += instance.OnConnectToServer;
-                @ConnectToServer.canceled += instance.OnConnectToServer;
             }
         }
     }
@@ -497,6 +600,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PauseMenu_PauseGame;
     private readonly InputAction m_PauseMenu_OpenChatPanel;
     private readonly InputAction m_PauseMenu_SendChatMessage;
+    private readonly InputAction m_PauseMenu_CloseKeyboard;
+    private readonly InputAction m_PauseMenu_OpenKeyboard;
+    private readonly InputAction m_PauseMenu_ConnectToServer;
     public struct PauseMenuActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -504,6 +610,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @PauseGame => m_Wrapper.m_PauseMenu_PauseGame;
         public InputAction @OpenChatPanel => m_Wrapper.m_PauseMenu_OpenChatPanel;
         public InputAction @SendChatMessage => m_Wrapper.m_PauseMenu_SendChatMessage;
+        public InputAction @CloseKeyboard => m_Wrapper.m_PauseMenu_CloseKeyboard;
+        public InputAction @OpenKeyboard => m_Wrapper.m_PauseMenu_OpenKeyboard;
+        public InputAction @ConnectToServer => m_Wrapper.m_PauseMenu_ConnectToServer;
         public InputActionMap Get() { return m_Wrapper.m_PauseMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -522,6 +631,15 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @SendChatMessage.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnSendChatMessage;
                 @SendChatMessage.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnSendChatMessage;
                 @SendChatMessage.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnSendChatMessage;
+                @CloseKeyboard.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnCloseKeyboard;
+                @CloseKeyboard.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnCloseKeyboard;
+                @CloseKeyboard.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnCloseKeyboard;
+                @OpenKeyboard.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnOpenKeyboard;
+                @OpenKeyboard.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnOpenKeyboard;
+                @OpenKeyboard.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnOpenKeyboard;
+                @ConnectToServer.started -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnConnectToServer;
+                @ConnectToServer.performed -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnConnectToServer;
+                @ConnectToServer.canceled -= m_Wrapper.m_PauseMenuActionsCallbackInterface.OnConnectToServer;
             }
             m_Wrapper.m_PauseMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -535,17 +653,26 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @SendChatMessage.started += instance.OnSendChatMessage;
                 @SendChatMessage.performed += instance.OnSendChatMessage;
                 @SendChatMessage.canceled += instance.OnSendChatMessage;
+                @CloseKeyboard.started += instance.OnCloseKeyboard;
+                @CloseKeyboard.performed += instance.OnCloseKeyboard;
+                @CloseKeyboard.canceled += instance.OnCloseKeyboard;
+                @OpenKeyboard.started += instance.OnOpenKeyboard;
+                @OpenKeyboard.performed += instance.OnOpenKeyboard;
+                @OpenKeyboard.canceled += instance.OnOpenKeyboard;
+                @ConnectToServer.started += instance.OnConnectToServer;
+                @ConnectToServer.performed += instance.OnConnectToServer;
+                @ConnectToServer.canceled += instance.OnConnectToServer;
             }
         }
     }
     public PauseMenuActions @PauseMenu => new PauseMenuActions(this);
-    private int m_XboxControllerSchemeIndex = -1;
-    public InputControlScheme XboxControllerScheme
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
     {
         get
         {
-            if (m_XboxControllerSchemeIndex == -1) m_XboxControllerSchemeIndex = asset.FindControlSchemeIndex("Xbox Controller");
-            return asset.controlSchemes[m_XboxControllerSchemeIndex];
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
     public interface IPlayerControlsActions
@@ -555,12 +682,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnPickupObject(InputAction.CallbackContext context);
         void OnDropObject(InputAction.CallbackContext context);
-        void OnConnectToServer(InputAction.CallbackContext context);
     }
     public interface IPauseMenuActions
     {
         void OnPauseGame(InputAction.CallbackContext context);
         void OnOpenChatPanel(InputAction.CallbackContext context);
         void OnSendChatMessage(InputAction.CallbackContext context);
+        void OnCloseKeyboard(InputAction.CallbackContext context);
+        void OnOpenKeyboard(InputAction.CallbackContext context);
+        void OnConnectToServer(InputAction.CallbackContext context);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
@@ -6,10 +7,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 {
     public GameObject firstSelection;
+    [SerializeField] private GameObject onScreenKeyboard;
+    private bool alreadyRan = false;
 
     [Header("Screens")] 
     public GameObject createRoomScreen;
@@ -18,6 +23,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public GameObject serverConnectScreen;
     public GameObject mainMenuScreen;
     public GameObject secondMenuScreen;
+    public GameObject currentScreen;
 
     [Header("Main Menu")] 
     public Button secondScreenButton;
@@ -39,9 +45,26 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public GameObject roomButtonPrefab;
     private List<GameObject> roomButtons = new List<GameObject>();
     private List<RoomInfo> roomList = new List<RoomInfo>();
+    
+    private static TMP_InputField selectedInputField;
+    private bool testBool = false;
+    private bool keyboardKeyPressed = false;
+
+    public static Menu instance;
+
+    public TMP_InputField SelectedInputField
+    {
+        get => selectedInputField;
+        set => selectedInputField = value;
+    }
+    
+
 
     void Start()
     {
+        PlayerInput.playerInput.controls.PauseMenu.OpenKeyboard.performed += ctx => OpenOnScreenKeyboard();
+
+        instance = this;
         Cursor.lockState = CursorLockMode.Confined;
 
         if (PhotonNetwork.InRoom)
@@ -53,10 +76,47 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
     private void Update()
     {
-        if (PlayerInput.playerInput.controls.PlayerControls.ConnectToServer.triggered && !PhotonNetwork.IsConnected)
+        if (PlayerInput.playerInput.controls.PauseMenu.ConnectToServer.triggered && !PhotonNetwork.IsConnected)
         {
             EventSystem.current.SetSelectedGameObject(null);
             ConnectToMasterServer();
+        }
+        
+        {
+            if (EventSystem.current.currentSelectedGameObject != null && testBool == true)
+            {
+                StartCoroutine(WaitAFrame());
+
+                if (EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>() != null &&
+                    keyboardKeyPressed)
+                {
+                    onScreenKeyboard.SetActive(true);
+                    onScreenKeyboard.transform.GetChild(0).GetChild(0).GetComponent<Button>().Select();
+                }
+            }
+
+            if (PlayerInput.playerInput.controls.PauseMenu.CloseKeyboard.triggered)
+            {
+                //onScreenKeyboard.SetActive(false);
+                testBool = false;
+                keyboardKeyPressed = false;
+                SetScreen(currentScreen);
+            }
+        }
+    }
+
+    public void OpenOnScreenKeyboard()
+    {
+        var allGamepads = Gamepad.all;
+        var gamepad = Gamepad.current;
+        Debug.Log(allGamepads);
+        if (gamepad != null && EventSystem.current.currentSelectedGameObject != null)
+        {
+            Debug.Log("Current gamepad name: " + gamepad.name);
+            if (EventSystem.current.currentSelectedGameObject.GetComponent<TMP_InputField>() != null)
+            {
+                keyboardKeyPressed = true;
+            }
         }
     }
 
@@ -67,7 +127,10 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         lobbyScreen.SetActive(false);
         lobbyBrowserScreen.SetActive(false);
         secondMenuScreen.SetActive(false);
+        onScreenKeyboard.SetActive(false);
+        alreadyRan = false;
         screen.SetActive(true);
+        currentScreen = screen;
         if (screen == lobbyBrowserScreen)
         {
             UpdateLobbyBrowserUI();
@@ -78,14 +141,22 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
             screen.transform.GetChild(0).GetChild(0).GetComponent<Button>().Select();
 
         if (screen.transform.GetChild(0).GetChild(0).GetComponent<TMP_InputField>() != null)
+        {
             screen.transform.GetChild(0).GetChild(0).GetComponent<TMP_InputField>().Select();
+            SelectedInputField = screen.transform.GetChild(0).GetChild(0).GetComponent<TMP_InputField>();
+        }
     }
     
     IEnumerator MoveTextEnd_NextFrame(TMP_InputField inputField)
     {
         yield return 0; // Skip the first frame in which this is called.
         inputField.DeactivateInputField();
+        testBool = true;
         //inputField.MoveTextEnd(false); // Do this during the next frame.
+    }
+    IEnumerator WaitAFrame()
+    {
+        yield return 0;
     }
 
     

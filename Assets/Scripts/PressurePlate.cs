@@ -47,6 +47,10 @@ public class PressurePlate : MonoBehaviourPun
             {
                 GameManager.instance.WordMade = true;
                 questionText.text = "Well done!";
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MainMenu");
+                }
             }
         }
     }
