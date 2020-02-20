@@ -88,7 +88,8 @@ public class PauseMenu : MonoBehaviourPun
     {
         if (confirmed)
         {
-            StartCoroutine(DisconnectPhoton());
+            //gamePaused = true;
+            StartCoroutine(NetworkManager.instance.DisconnectPhoton("MainMenu"));
         }
         else
         {
@@ -97,14 +98,4 @@ public class PauseMenu : MonoBehaviourPun
             SelectButton(pauseMenuPanel);
         }
     }
-
-    IEnumerator DisconnectPhoton()
-    {
-        PhotonNetwork.Disconnect();
-        while (PhotonNetwork.IsConnected)
-            yield return null;
-        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MainMenu");
-    }
-
-
 }

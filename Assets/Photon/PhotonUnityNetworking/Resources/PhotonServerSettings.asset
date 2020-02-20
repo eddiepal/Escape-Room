@@ -54,5 +54,6 @@ MonoBehaviour:
   - CreateWord
   - AddToList
   - UpdatePlayerList
+  - UpdateLobbyUserInterface
   DisableAutoOpenWizard: 1
   ShowSettings: 0

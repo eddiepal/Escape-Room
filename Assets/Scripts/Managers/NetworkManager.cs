@@ -17,13 +17,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        //DontDestroyOnLoad(gameObject);
-/*        GameObject oldGameObject = GameObject.Find(gameObject.name);
+        DontDestroyOnLoad(gameObject);
+        GameObject oldGameObject = GameObject.Find(gameObject.name);
 
         if (oldGameObject && oldGameObject != gameObject)
         {
             Destroy(oldGameObject);
-        }*/
+        }
         instance = this;
     }
 
@@ -43,6 +43,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public void ChangeScene (string sceneName)
     {
         PhotonNetwork.LoadLevel(sceneName);
+    }
+    
+    public IEnumerator DisconnectPhoton(string sceneName)
+    {
+        PhotonNetwork.LeaveRoom();
+        while (PhotonNetwork.InRoom)
+            yield return null;
+        instance.photonView.RPC("ChangeScene", RpcTarget.All, sceneName);
+        Menu.instance.SetScreen(Menu.instance.mainMenuScreen);
+
     }
 
 }

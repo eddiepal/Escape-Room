@@ -11,7 +11,7 @@ public class WordCreator : MonoBehaviourPun
     [SerializeField] private String letterBoxPrefab;
     [SerializeField] private GameObject[] letterSpawnPoint;
 
-    [SerializeField] private static List<GameObject> _letterBoxes = new List<GameObject>();
+    [SerializeField] private List<GameObject> _letterBoxes = new List<GameObject>();
 
     public string TheWord
     {
@@ -19,7 +19,7 @@ public class WordCreator : MonoBehaviourPun
         set => theWord = value;
     }
     
-    public static List<GameObject> LetterBoxes
+    public List<GameObject> LetterBoxes
     {
         get => _letterBoxes;
         set => _letterBoxes = value;
@@ -65,7 +65,10 @@ public class WordCreator : MonoBehaviourPun
     {
         GameObject tempHold = PhotonView.Find(viewId).gameObject;
         _letterBoxes.Add(tempHold);
-        SetUpLetterBox();
+        if (_letterBoxes != null)
+        {
+            SetUpLetterBox();
+        }
     }
 
     public void SetUpLetterBox()

@@ -16,6 +16,8 @@ public class PressurePlate : MonoBehaviourPun
     private Renderer rend;
     private List<GameObject> letterBoxesList;
     [SerializeField] private List<GameObject> pressurePlates;
+
+    [SerializeField] private WordCreator wordCreatorScript;
     
 
     private void Start()
@@ -23,7 +25,7 @@ public class PressurePlate : MonoBehaviourPun
         rend = GetComponent<MeshRenderer>();
         rend.enabled = true;
         rend.sharedMaterial = material[0];
-         letterBoxesList = WordCreator.LetterBoxes;
+        letterBoxesList = wordCreatorScript.LetterBoxes;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,7 +51,7 @@ public class PressurePlate : MonoBehaviourPun
                 questionText.text = "Well done!";
                 if (PhotonNetwork.IsMasterClient)
                 {
-                    NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "MainMenu");
+                    StartCoroutine(NetworkManager.instance.DisconnectPhoton("MainMenu"));
                 }
             }
         }
