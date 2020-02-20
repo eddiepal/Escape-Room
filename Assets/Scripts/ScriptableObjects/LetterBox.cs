@@ -6,6 +6,10 @@ using UnityEngine;
 public class LetterBox : ScriptableObject
 {
     public new string name;
-    public Material defaultMaterial;
-    public Color textColor;
+    public Material defaultLetterBoxMaterial;
+    public Color letterTextColor;
+    public Color defaultLetterBoxColor;
+    public Color defaultLetterTextColor;
+    
+    
 }
