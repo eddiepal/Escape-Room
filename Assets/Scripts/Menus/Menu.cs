@@ -223,7 +223,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     {
         Debug.Log("In OnJoinedRoom method");
         SetScreen(lobbyScreen);
-        photonView.RPC("UpdateLobbyUI", RpcTarget.All);
+        photonView.RPC("UpdateLobbyUserInterface", RpcTarget.All);
     }
     
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -235,6 +235,8 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
     
     public void SetScreen(GameObject screen)
     {
+        if(mainMenuScreen == null)
+            return;
         mainMenuScreen.SetActive(false);
         createRoomScreen.SetActive(false);
         lobbyScreen.SetActive(false);
@@ -245,8 +247,7 @@ public class Menu : MonoBehaviourPunCallbacks, ILobbyCallbacks
         currentScreen = screen;
         if (screen == lobbyBrowserScreen)
         {
-            UpdateLobbyBrowserUserInterface();
-            Debug.Log("in if statement");
+            UpdateLobbyBrowserUserInterface();    
         }
         
         if(screen.transform.GetChild(0).GetChild(0).GetComponent<Button>())
