@@ -7,10 +7,10 @@ using UnityEngine;
 
 public class WordCreator : MonoBehaviourPun
 {
+    [Header("Word Details")]
     [SerializeField] private String theWord = "Test";
     [SerializeField] private String letterBoxPrefab;
     [SerializeField] private GameObject[] letterSpawnPoint;
-
     [SerializeField] private List<GameObject> _letterBoxes = new List<GameObject>();
 
     public string TheWord

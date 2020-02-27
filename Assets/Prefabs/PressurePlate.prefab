@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8750383675358353459}
   - component: {fileID: 4733579586938604324}
   m_Layer: 0
-  m_Name: PPM
+  m_Name: PressurePlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,6 +335,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  wordCreatorScript: {fileID: 0}
+  door: {fileID: 0}
+  player: {fileID: 3360533590415007328, guid: 582dceba60fd0f04ca6d7c5c1699d092, type: 3}
 --- !u!54 &8750383675358353459
 Rigidbody:
   m_ObjectHideFlags: 0

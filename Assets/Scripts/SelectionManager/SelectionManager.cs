@@ -27,17 +27,16 @@ public class SelectionManager : MonoBehaviourPun
         set => _selection = value;
         get => _selection;
     }
+
+    public void ChangeTag()
+    {
+        selectableTag = "Test";
+    }
     
     private void Update()
     {
         if (!photonView.IsMine)  
             return;
-
-        if (GameManager.instance.WordMade && alreadyExecuted == false)
-        {
-            alreadyExecuted = true;
-            selectableTag = "Test";
-        }
 
         // Deselection/Selection Response
         if (_selection != null)

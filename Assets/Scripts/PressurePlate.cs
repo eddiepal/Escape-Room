@@ -18,7 +18,14 @@ public class PressurePlate : MonoBehaviourPun
     [SerializeField] private List<GameObject> pressurePlates;
 
     [SerializeField] private WordCreator wordCreatorScript;
+    private bool wordMade = false;
     
+    
+    [Header("Object References")]
+    [SerializeField] private GameObject door;
+    [SerializeField] private GameObject player;
+    private GameManager _gameManager;
+
 
     private void Start()
     {
@@ -28,9 +35,14 @@ public class PressurePlate : MonoBehaviourPun
         letterBoxesList = wordCreatorScript.LetterBoxes;
     }
 
+    public void Initialize(GameManager gameManager)
+    {
+        _gameManager = gameManager;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (GameManager.instance.WordMade == false)
+        if (wordMade == false)
         {
             if (other.gameObject.CompareTag("LetterBox"))
             {
@@ -47,7 +59,10 @@ public class PressurePlate : MonoBehaviourPun
 
             if (AllLettersPlaced())
             {
-                GameManager.instance.WordMade = true;
+                Debug.Log("In all letters placed method.");
+                wordMade = true;
+                door.GetComponent<DoorOperation>().OpenDoor();
+                player.GetComponent<SelectionManager>().ChangeTag();
                 questionText.text = "Well done!";
                 if (PhotonNetwork.IsMasterClient)
                 {

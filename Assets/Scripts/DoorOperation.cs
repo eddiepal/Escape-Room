@@ -6,17 +6,19 @@ public class DoorOperation : MonoBehaviour
     public float openSpeed = 5f;
     public float closeSpeed = -5f;
     private float originalPosition;
+
+    [SerializeField] private GameObject pressurePlate;
     // Use this for initialization
 
     private void Start()
     {
+        
         originalPosition = transform.position.y;
     }
-    
-    // Update is called once per frame
-    void Update()
+
+    public void OpenDoor()
     {
-        if (GameManager.instance.WordMade == true)
+        while (transform.position.y < 5.8f)
         {
             if (transform.position.y < originalPosition + 3)
             {

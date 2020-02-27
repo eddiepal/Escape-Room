@@ -450,7 +450,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43250
+  m_Name: pb_Mesh42502
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2123,7 +2123,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43466
+  m_Name: pb_Mesh42724
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3664,6 +3664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openSpeed: 5
   closeSpeed: -5
+  pressurePlate: {fileID: 0}
 --- !u!43 &464727533
 Mesh:
   m_ObjectHideFlags: 0
@@ -4109,6 +4110,11 @@ PrefabInstance:
       propertyPath: wordCreatorScript
       value: 
       objectReference: {fileID: 2021095107}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 456099217}
     - target: {fileID: 8750383675358353460, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Mesh
@@ -4831,7 +4837,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42500
+  m_Name: pb_Mesh36690
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11038,7 +11044,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42644
+  m_Name: pb_Mesh41896
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18080,6 +18086,11 @@ PrefabInstance:
       propertyPath: wordCreatorScript
       value: 
       objectReference: {fileID: 2021095107}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 456099217}
     - target: {fileID: 8750383675358353460, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Mesh
@@ -19104,7 +19115,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43134
+  m_Name: pb_Mesh42386
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20403,6 +20414,11 @@ PrefabInstance:
       propertyPath: wordCreatorScript
       value: 
       objectReference: {fileID: 2021095107}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 456099217}
     - target: {fileID: 8750383675358353460, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Mesh
@@ -22356,7 +22372,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43394
+  m_Name: pb_Mesh42648
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23473,6 +23489,11 @@ PrefabInstance:
       propertyPath: wordCreatorScript
       value: 
       objectReference: {fileID: 2021095107}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 456099217}
     - target: {fileID: 8750383675358353460, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Mesh
@@ -25363,6 +25384,11 @@ PrefabInstance:
       propertyPath: wordCreatorScript
       value: 
       objectReference: {fileID: 2021095107}
+    - target: {fileID: 8750383675358353458, guid: b2e22920396e9ad42a66314a731b15e3,
+        type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 456099217}
     - target: {fileID: 8750383675358353460, guid: b2e22920396e9ad42a66314a731b15e3,
         type: 3}
       propertyPath: m_Mesh

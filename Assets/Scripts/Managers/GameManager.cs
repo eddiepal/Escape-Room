@@ -11,19 +11,13 @@ public class GameManager : MonoBehaviourPun
     public string playerPrefabLocation;
     public PlayerController[] players;
     public Transform[] spawnPoints;
-    public int alivePlayers;
+    [SerializeField] private int alivePlayers;
     [SerializeField] private TextMeshProUGUI playerListText;
     
     private static List<bool> letterPlaced = new List<bool>();
-    private static bool wordMade = false;
-
+    private GameManager _gameManager; // reference to a gamemanager
+    
     [field: SerializeField] public bool UsingController { get; }
-
-    public bool WordMade
-    {
-        get => wordMade;
-        set => wordMade = value;
-    }
 
     public List<bool> LetterPlaced
     {
@@ -77,7 +71,9 @@ public class GameManager : MonoBehaviourPun
 
         // initialize the player for all other players
         playerObj.GetComponent<PlayerController>().photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer);
-    
+        playerObj.GetComponent<SelectionManager>().photonView.RPC("Initialize", RpcTarget.All, _gameManager);
+
+
     }
 
     [PunRPC]
